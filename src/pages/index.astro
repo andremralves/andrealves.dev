@@ -1,11 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Card from '../components/Card.astro'
+import TextGradient from '../components/TextGradient'
+import OpenSourceList from '../components/OpenSourceList'
 ---
 
 <Layout title="André Alves">
   <main>
-    <h1>Hi there 👋, I'm am</h1>
-    <h1 class="text-4xl">André Alves,</h1>
+    <section class="py-10">
+      <div class="flex flex-col">
+        <h1 class="max-w-fit text-5xl mb-5 font-semibold">
+          <span>Hi there 👋, I'm</span>
+          <TextGradient text="André Alves" />.
+        </h1>
+        <p class="text-neutral-400">
+          Software engineering student and full stack web developer that likes
+          to contribute to open source projects.
+        </p>
+      </div>
+      <div>
+        <img src="" alt="" />
+      </div>
+    </section>
+    <OpenSourceList />
   </main>
 </Layout>
