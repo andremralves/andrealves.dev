@@ -9,6 +9,8 @@ type MapType = {
 }
 const tagColor: MapType = {
   NextJs: 'border-blue-300',
+  NodeJs: 'border-green-300',
+  Javascript: 'border-yellow-300',
   Java: 'border-amber-800',
   Angular: 'border-red-600',
   Typescript: 'border-blue-500',

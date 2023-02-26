@@ -3,6 +3,7 @@ import Tag from './Tag'
 
 type Props = {
   projectName: string
+  borderColor?: string
   stars: string
   techs: string[]
   description: string
@@ -10,8 +11,11 @@ type Props = {
 }
 
 const OpenSourceListItem = (props: Props) => {
+  const borderColor = props.borderColor || 'border-orange-300'
   return (
-    <div className="bg-neutral-900 rounded p-2 mt-8 border-orange-300 border-l-2">
+    <div
+      className={`bg-neutral-900 rounded p-2 mt-8 ${borderColor} border-l-2 drop-shadow-md`}
+    >
       <div className="ml-2">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl">{props.projectName}</h2>

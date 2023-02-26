@@ -15,6 +15,16 @@ const openSourceProjects = [
     contributionLink:
       'https://github.com/TEAMMATES/teammates/issues?q=author%3Aandremralves',
   },
+  {
+    projectName: 'Actual Budget',
+    borderColor: 'border-green-600',
+    techs: ['Javascript', 'React', 'NodeJs'],
+    stars: '6k',
+    description: `"Actual is a local-first personal finance tool. 
+    It is 100% free and open-source, written in NodeJS, it has a synchronization element 
+    so that all your changes can move between devices without any heavy lifting."`,
+    contributionLink: 'https://github.com/actualbudget/actual/pull/124',
+  },
 ]
 
 type OpenSourceListProps = {}
@@ -22,10 +32,11 @@ type OpenSourceListProps = {}
 const OpenSourceList = (props: OpenSourceListProps) => {
   return (
     <section>
-      <SectionTitle title="Open Source" />
+      <SectionTitle title="Open Source Contributions" />
       {openSourceProjects.map((project) => (
         <OpenSourceListItem
           projectName={project.projectName}
+          borderColor={project.borderColor}
           stars={project.stars}
           techs={project.techs}
           description={project.description}
