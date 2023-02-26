@@ -1,0 +1,123 @@
+---
+layout: ../../layouts/PostLayout.astro
+title: 'How to make a tag system with react'
+author: 'André Alves'
+pubDate: 2022-12-30
+description: 'This article will help you to create your own tag system with different colors or functionalities'
+tags: ['React', 'Typescript', 'Tailwindcss', 'NextJs']
+---
+
+# How to make a tag system with react
+
+The objective of this article is to help you to create a nice looking tag system with different colors and functions for each tag name in your react blog or site.
+
+Here is how it looks like:
+
+![tag system image](/images/tag-system-image.png)
+
+To accomplish this goal I will be using tailwindcss for my styles, typescript and, of course, react.
+
+The idea here is to create a component called "Tag.tsx", or whatever you want, that will have one property, the name of the tag. With this property the component will know what are the attributes of this tag, e.g., the background color of the tag. Now, just follow these steps:
+
+## 1. Create a react component
+
+Note that we have a react component with one props object that will have one property called name (the name of the tag).
+
+```
+import React from 'react'
+
+type TagProps = {
+  name: string
+}
+
+const Tag = (props: TagProps) => {
+  return (
+    <span className={`px-2 mr-2 bg-blue-300 rounded text-black`}>
+      {props.name}
+    </span>
+  )
+}
+
+export default Tag
+```
+
+As you can see, we are using an default color for all the different tag names, but what we want is to have a
+different color for each tag on our component. Let's change this.
+
+## 2. Create an object to map tag names to their respective background colors
+
+```
+import React from 'react'
+
+type MapType = {
+[id: string]: string
+}
+
+const tagColor: MapType = {
+NextJs: 'bg-blue-300',
+Typescript: 'bg-blue-500',
+Python: 'bg-orange-500',
+Django: 'bg-green-600',
+React: 'bg-sky-400',
+Html: 'bg-yellow-200',
+Css: 'bg-purple-200',
+Bootstrap: 'bg-red-300',
+Tailwindcss: 'bg-green-300',
+SFML: 'bg-amber-500',
+'C++': 'bg-red-500',
+'Data Structures': 'bg-orange-300',
+}
+
+const Tag = (props: TagProps) => {
+  return (
+    <span className={`px-2 mr-2 bg-blue-300 rounded text-black`}>
+      {props.name}
+    </span>
+  )
+}
+
+export default Tag
+
+```
+
+## 3. Use the tagColor object inside your component
+
+Now, let's change the default "bg-blue-300" color, and use our map. Below you can
+check the full code.
+
+```
+import React from 'react'
+
+type MapType = {
+[id: string]: string
+}
+
+const tagColor: MapType = {
+NextJs: 'bg-blue-300',
+Typescript: 'bg-blue-500',
+Python: 'bg-orange-500',
+Django: 'bg-green-600',
+React: 'bg-sky-400',
+Html: 'bg-yellow-200',
+Css: 'bg-purple-200',
+Bootstrap: 'bg-red-300',
+Tailwindcss: 'bg-green-300',
+SFML: 'bg-amber-500',
+'C++': 'bg-red-500',
+'Data Structures': 'bg-orange-300',
+}
+
+const Tag = (props: TagProps) => {
+  return (
+    <span className={`px-2 mr-2 ${tagColor[props.name]} rounded text-black`}>
+      {props.name}
+    </span>
+  )
+}
+
+export default Tag
+```
+
+That is all, in this article you learned how to create different colors for each tag name using a map, but you can
+apply this concept for whatever functionality you want, e.g., relate a different link for each tag, so the user can click and
+be led to a page that shows just articles with this tag.

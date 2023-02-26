@@ -1,24 +1,38 @@
 ---
+import SectionTitle from '../components/SectionTitle'
 import Layout from '../layouts/Layout.astro'
 
 const posts = await Astro.glob('../pages/posts/*.md')
+
+function dateFormatter(date: string) {
+  return new Date(Date.parse(date)).toLocaleDateString()
+}
+
+function handleClick() {
+  console.log('clicked')
+}
 ---
 
 <Layout title="André Alves - Blog">
-  <ul>
-    {
-      posts.map((post, index) => (
-        <li class="pb-4 border-slate-500 border-b-2">
-          <a class="flex" href={post.url}>
-            <span class="mr-3 text-slate-500">{index + 1}</span>
-            <div class="flex justify-between w-full">
-              <div>{post.frontmatter.title}</div>
+  <section class="pt-10">
+    <SectionTitle title="Blog" />
+    <ul class="pt-5">
+      {
+        posts.map((post, index) => (
+          <li class="pb-4 border-slate-500 border-b-2">
+            <a class="flex" href={post.url}>
+              <span class="mr-3 text-slate-500">{index + 1}</span>
+              <div class="flex justify-between w-full">
+                <div>{post.frontmatter.title}</div>
 
-              <div class="text-slate-500">{post.frontmatter.pubDate}</div>
-            </div>
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+                <div class="text-slate-500">
+                  {dateFormatter(post.frontmatter.pubDate)}
+                </div>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </Layout>
