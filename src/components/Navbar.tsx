@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { FaBars } from 'react-icons/fa'
 import NavItem from './NavItem'
 
 type NavbarProps = {}
@@ -18,9 +20,15 @@ const navItems = [
 ]
 
 const Navbar = (props: NavbarProps) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen)
+    console.log(isOpen)
+  }
   return (
     <header className="text-lg">
-      <div className="py-4 ma flex justify-between items-center">
+      <div className="py-4 flex justify-between items-center">
         <a className="text-2xl hover:text-green-100" href="/">
           <span className="text-blue-500">[ </span>
           <span className="">andre</span>
@@ -28,12 +36,24 @@ const Navbar = (props: NavbarProps) => {
           <span className="">alves</span>
           <span className="text-blue-500"> ]</span>
         </a>
-        <ul className="flex gap-2">
+        <ul className="hidden md:flex md:gap-2">
           {navItems.map((item) => (
             <NavItem key={item.title} title={item.title} link={item.link} />
           ))}
         </ul>
+        <button className="md:hidden" onClick={toggleMenu}>
+          <FaBars size={30} />
+        </button>
       </div>
+      {isOpen && (
+        <ul className="flex flex-col gap-3 items-center text-lg md:hidden">
+          {navItems.map((item) => (
+            <div key={item.title} className="border-b w-full">
+              <NavItem title={item.title} link={item.link} />
+            </div>
+          ))}
+        </ul>
+      )}
     </header>
   )
 }
