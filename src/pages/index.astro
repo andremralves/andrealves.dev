@@ -3,24 +3,12 @@ import Layout from '../layouts/Layout.astro'
 import Card from '../components/Card.astro'
 import TextGradient from '../components/TextGradient'
 import OpenSourceList from '../components/OpenSourceList'
+import HeroSection from '../components/HeroSection'
 ---
 
 <Layout title="André Alves">
   <main>
-    <section class="py-10">
-      <div class="flex flex-col">
-        <div class="max-w-fit mb-5 text-3xl">
-          <span>Hi there 👋, I'm</span>
-          <h1 class="pt-2 text-7xl font-semibold">
-            <TextGradient text="André Alves" />
-          </h1>
-        </div>
-        <p class="text-neutral-400">
-          Software engineering student and full stack web developer that likes
-          to contribute to open source projects.
-        </p>
-      </div>
-    </section>
+    <HeroSection />
     <OpenSourceList />
   </main>
 </Layout>
