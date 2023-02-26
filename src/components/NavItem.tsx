@@ -7,9 +7,13 @@ type NavItemProps = {
 
 const NavItem = (props: NavItemProps) => {
   return (
-    <li className="px-2 py-1 hover:bg-neutral-800 hover:rounded">
-      <a href={props.link}>{props.title}</a>
-    </li>
+    <div className="border-b w-full md:border-none md:w-fit">
+      <a href={props.link}>
+        <li className="px-2 py-1 hover:bg-neutral-800 hover:rounded">
+          {props.title}
+        </li>
+      </a>
+    </div>
   )
 }
 

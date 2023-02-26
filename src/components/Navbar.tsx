@@ -48,9 +48,7 @@ const Navbar = (props: NavbarProps) => {
       {isOpen && (
         <ul className="flex flex-col gap-3 items-center text-lg md:hidden">
           {navItems.map((item) => (
-            <div key={item.title} className="border-b w-full">
-              <NavItem title={item.title} link={item.link} />
-            </div>
+            <NavItem key={item.title} title={item.title} link={item.link} />
           ))}
         </ul>
       )}
