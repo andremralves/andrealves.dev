@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa/index'
+import { FaGithub, FaLinkedin } from 'react-icons/fa/index'
 
 type Props = {}
 
@@ -23,15 +23,6 @@ const Social = (props: Props) => {
             href="https://www.linkedin.com/in/andremralves/"
           >
             <FaLinkedin size={30} className="text-blue-400" />
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            href="mailto:andremralves@gmail.com"
-          >
-            <FaEnvelope size={30} className="text-orange-400" />
           </a>
         </li>
       </ul>
