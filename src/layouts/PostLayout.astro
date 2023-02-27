@@ -11,8 +11,24 @@ const { frontmatter } = Astro.props
   keywords={frontmatter.tags.toString()}
 >
   <main class="mt-10 flex justify-center bg-neutral-800 rounded py-8">
-    <article class="prose prose-invert">
+    <article class="prose prose-invert line-numbers">
       <slot />
     </article>
   </main>
 </Layout>
+<style is:inline>
+  code {
+    counter-reset: step;
+    counter-increment: step calc(var(--start, 1) - 1);
+  }
+
+  code .line::before {
+    content: counter(step);
+    counter-increment: step;
+    width: 1rem;
+    margin-right: 1.5rem;
+    display: inline-block;
+    text-align: right;
+    color: rgba(115, 138, 148, 0.4);
+  }
+</style>

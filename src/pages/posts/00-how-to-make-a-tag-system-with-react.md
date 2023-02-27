@@ -23,7 +23,7 @@ The idea here is to create a component called "Tag.tsx", or whatever you want, t
 
 Note that we have a react component with one props object that will have one property called name (the name of the tag).
 
-```
+```tsx
 import React from 'react'
 
 type TagProps = {
@@ -46,26 +46,26 @@ different color for each tag on our component. Let's change this.
 
 ## 2. Create an object to map tag names to their respective background colors
 
-```
+```tsx
 import React from 'react'
 
 type MapType = {
-[id: string]: string
+  [id: string]: string
 }
 
 const tagColor: MapType = {
-NextJs: 'bg-blue-300',
-Typescript: 'bg-blue-500',
-Python: 'bg-orange-500',
-Django: 'bg-green-600',
-React: 'bg-sky-400',
-Html: 'bg-yellow-200',
-Css: 'bg-purple-200',
-Bootstrap: 'bg-red-300',
-Tailwindcss: 'bg-green-300',
-SFML: 'bg-amber-500',
-'C++': 'bg-red-500',
-'Data Structures': 'bg-orange-300',
+  NextJs: 'bg-blue-300',
+  Typescript: 'bg-blue-500',
+  Python: 'bg-orange-500',
+  Django: 'bg-green-600',
+  React: 'bg-sky-400',
+  Html: 'bg-yellow-200',
+  Css: 'bg-purple-200',
+  Bootstrap: 'bg-red-300',
+  Tailwindcss: 'bg-green-300',
+  SFML: 'bg-amber-500',
+  'C++': 'bg-red-500',
+  'Data Structures': 'bg-orange-300',
 }
 
 const Tag = (props: TagProps) => {
@@ -77,7 +77,6 @@ const Tag = (props: TagProps) => {
 }
 
 export default Tag
-
 ```
 
 ## 3. Use the tagColor object inside your component
@@ -85,26 +84,26 @@ export default Tag
 Now, let's change the default "bg-blue-300" color, and use our map. Below you can
 check the full code.
 
-```
+```tsx
 import React from 'react'
 
 type MapType = {
-[id: string]: string
+  [id: string]: string
 }
 
 const tagColor: MapType = {
-NextJs: 'bg-blue-300',
-Typescript: 'bg-blue-500',
-Python: 'bg-orange-500',
-Django: 'bg-green-600',
-React: 'bg-sky-400',
-Html: 'bg-yellow-200',
-Css: 'bg-purple-200',
-Bootstrap: 'bg-red-300',
-Tailwindcss: 'bg-green-300',
-SFML: 'bg-amber-500',
-'C++': 'bg-red-500',
-'Data Structures': 'bg-orange-300',
+  NextJs: 'bg-blue-300',
+  Typescript: 'bg-blue-500',
+  Python: 'bg-orange-500',
+  Django: 'bg-green-600',
+  React: 'bg-sky-400',
+  Html: 'bg-yellow-200',
+  Css: 'bg-purple-200',
+  Bootstrap: 'bg-red-300',
+  Tailwindcss: 'bg-green-300',
+  SFML: 'bg-amber-500',
+  'C++': 'bg-red-500',
+  'Data Structures': 'bg-orange-300',
 }
 
 const Tag = (props: TagProps) => {
