@@ -4,6 +4,11 @@ import Layout from './Layout.astro'
 const { frontmatter } = Astro.props
 ---
 
-<Layout title={frontmatter.title} description={frontmatter.description}>
+<Layout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  author={frontmatter.author}
+  keywords={frontmatter.tags.toString()}
+>
   <slot />
 </Layout>

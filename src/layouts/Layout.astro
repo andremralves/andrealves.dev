@@ -3,10 +3,12 @@ import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 export interface Props {
   title: string
+  author?: string
+  keywords?: string
   description: string
 }
 
-const { title, description } = Astro.props
+const { title, description, author, keywords } = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -17,6 +19,8 @@ const { title, description } = Astro.props
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    {author && <meta name="author" content={author} />}
+    {keywords && <meta name="keywords" content={keywords} />}
     <meta name="description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,15 +38,6 @@ const { title, description } = Astro.props
   </body>
 </html>
 <style is:global>
-  :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
-  }
   html {
     font-family: Poppins, sans-serif;
   }
