@@ -1,7 +1,7 @@
 import React from 'react'
 import Tag from './Tag'
 
-type Props = {
+type OpenSourceCardProps = {
   projectName: string
   borderColor?: string
   stars: string
@@ -10,7 +10,7 @@ type Props = {
   contributionLink: string
 }
 
-const OpenSourceListItem = (props: Props) => {
+const OpenSourceCard = (props: OpenSourceCardProps) => {
   const borderColor = props.borderColor || 'border-orange-300'
   return (
     <div
@@ -45,4 +45,4 @@ const OpenSourceListItem = (props: Props) => {
   )
 }
 
-export default OpenSourceListItem
+export default OpenSourceCard

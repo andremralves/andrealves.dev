@@ -1,5 +1,5 @@
 import React from 'react'
-import OpenSourceListItem from './OpenSourceListItem'
+import OpenSourceCard from './OpenSourceCard'
 import SectionTitle from './SectionTitle'
 import Tag from './Tag'
 
@@ -31,10 +31,10 @@ type OpenSourceListProps = {}
 
 const OpenSourceList = (props: OpenSourceListProps) => {
   return (
-    <section>
+    <section className="mt-10">
       <SectionTitle title="Open Source Contributions" />
       {openSourceProjects.map((project) => (
-        <OpenSourceListItem
+        <OpenSourceCard
           projectName={project.projectName}
           borderColor={project.borderColor}
           stars={project.stars}
