@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FaBars } from 'react-icons/fa'
+import { FaBars } from 'react-icons/fa/index'
 import NavItem from './NavItem'
 
 type NavbarProps = {}
