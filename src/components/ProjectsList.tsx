@@ -21,6 +21,7 @@ const ProjectsList = (props: ProjectListProps) => {
       <SectionTitle title="Projects" />
       {projects.map((project) => (
         <ProjectCard
+          key={project.name}
           projectName={project.name}
           techs={project.techs}
           description={project.description}

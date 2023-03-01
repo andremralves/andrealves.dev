@@ -5,7 +5,7 @@ import Tag from './Tag'
 
 const openSourceProjects = [
   {
-    projectName: 'Teammates',
+    name: 'Teammates',
     techs: ['java', 'angular', 'typescript'],
     stars: '1.4k',
     description: `"TEAMMATES is a free online tool for managing peer evaluations and 
@@ -16,7 +16,7 @@ const openSourceProjects = [
       'https://github.com/TEAMMATES/teammates/issues?q=author%3Aandremralves',
   },
   {
-    projectName: 'Actual Budget',
+    name: 'Actual Budget',
     borderColor: 'border-green-600',
     techs: ['javascript', 'reactjs', 'nodejs'],
     stars: '6k',
@@ -35,7 +35,8 @@ const OpenSourceList = (props: OpenSourceListProps) => {
       <SectionTitle title="Open Source Contributions" />
       {openSourceProjects.map((project) => (
         <OpenSourceCard
-          projectName={project.projectName}
+          key={project.name}
+          projectName={project.name}
           borderColor={project.borderColor}
           stars={project.stars}
           techs={project.techs}

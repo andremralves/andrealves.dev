@@ -25,8 +25,8 @@ const OpenSourceCard = (props: OpenSourceCardProps) => {
         </div>
         <h3 className="mt-3">Tech</h3>
         <div className="flex mt-1 gap-2">
-          {props.techs.map((techName) => (
-            <Tag name={techName} />
+          {props.techs.map((tech) => (
+            <Tag key={tech} name={tech} />
           ))}
         </div>
         <h3 className="mt-3">Description</h3>
