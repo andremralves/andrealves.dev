@@ -41,7 +41,7 @@ const Navbar = (props: NavbarProps) => {
           <NavItem title={navItems[0].title} link={navItems[0].link} />
           <NavItem title={navItems[1].title} link={navItems[1].link} />
           <li className={`px-2 py-1 hover:bg-neutral-800 hover:rounded `}>
-            <div className="w-full md:w-40 ">
+            <div className="w-full ">
               <div className="flex items-end gap-3 justify-center">
                 <a href={resume.link1}>
                   {resume.title}: <span className="hover:text-xl">🇺🇸</span>
