@@ -6,7 +6,7 @@ import Tag from './Tag'
 const openSourceProjects = [
   {
     projectName: 'Teammates',
-    techs: ['Java', 'Angular', 'Typescript'],
+    techs: ['java', 'angular', 'typescript'],
     stars: '1.4k',
     description: `"TEAMMATES is a free online tool for managing peer evaluations and 
     other feedback paths of your students. It is provided as a
@@ -18,7 +18,7 @@ const openSourceProjects = [
   {
     projectName: 'Actual Budget',
     borderColor: 'border-green-600',
-    techs: ['Javascript', 'React', 'NodeJs'],
+    techs: ['javascript', 'react', 'nodejs'],
     stars: '6k',
     description: `"Actual is a local-first personal finance tool. 
     It is 100% free and open-source, written in NodeJS, it has a synchronization element 

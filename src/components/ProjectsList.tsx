@@ -5,7 +5,7 @@ import SectionTitle from './SectionTitle'
 const projects = [
   {
     name: 'This Website',
-    techs: ['Typescript', 'React', 'Astro'],
+    techs: ['typescript', 'reactjs', 'astrojs'],
     borderColor: 'border-neutral-100',
     description: 'My personal portfolio website and blog.',
     sourceLink: 'https://github.com/andremralves/new_website',
