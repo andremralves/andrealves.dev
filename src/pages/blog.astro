@@ -1,41 +1,17 @@
 ---
-import SectionTitle from '../components/SectionTitle'
+import Posts from '../components/Posts'
 import Layout from '../layouts/Layout.astro'
 
-const posts = await Astro.glob('../pages/blog/*.md')
-
-function dateFormatter(date: string) {
-  return new Date(Date.parse(date)).toLocaleDateString()
-}
-
-function handleClick() {
-  console.log('clicked')
-}
+let posts = await Astro.glob('../pages/blog/*.md')
+posts = posts.sort(
+  (p1, p2) =>
+    Date.parse(p2.frontmatter.pubDate) - Date.parse(p1.frontmatter.pubDate)
+)
 ---
 
 <Layout
   title="André Alves - Blog"
   description="The blog section of André Alves's website."
 >
-  <section class="pt-10">
-    <SectionTitle title="Blog" />
-    <ul class="pt-5">
-      {
-        posts.map((post, index) => (
-          <li class="pb-4 border-slate-500 border-b-2">
-            <a class="flex" href={post.url}>
-              <span class="mr-3 text-slate-500">{index + 1}</span>
-              <div class="flex justify-between w-full">
-                <div>{post.frontmatter.title}</div>
-
-                <div class="text-slate-500">
-                  {dateFormatter(post.frontmatter.pubDate)}
-                </div>
-              </div>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
+  <Posts title="Blog" posts={posts} />
 </Layout>

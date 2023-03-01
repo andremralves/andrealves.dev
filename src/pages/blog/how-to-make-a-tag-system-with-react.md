@@ -2,7 +2,7 @@
 layout: ../../layouts/PostLayout.astro
 title: 'How to make a tag system with react'
 author: 'André Alves'
-pubDate: 2022-12-30
+pubDate: '2022-12-30'
 description: 'This article will help you to create your own tag system with different colors or functionalities'
 tags: ['reactjs', 'typescript', 'tailwindcss', 'nextjs']
 ---
