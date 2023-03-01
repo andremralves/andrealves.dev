@@ -18,7 +18,7 @@ const openSourceProjects = [
   {
     projectName: 'Actual Budget',
     borderColor: 'border-green-600',
-    techs: ['javascript', 'react', 'nodejs'],
+    techs: ['javascript', 'reactjs', 'nodejs'],
     stars: '6k',
     description: `"Actual is a local-first personal finance tool. 
     It is 100% free and open-source, written in NodeJS, it has a synchronization element 
