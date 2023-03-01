@@ -4,7 +4,7 @@ title: 'How to make a tag system with react'
 author: 'André Alves'
 pubDate: 2022-12-30
 description: 'This article will help you to create your own tag system with different colors or functionalities'
-tags: ['React', 'Typescript', 'Tailwindcss', 'NextJs']
+tags: ['reactjs', 'typescript', 'tailwindcss', 'nextjs']
 ---
 
 # How to make a tag system with react
