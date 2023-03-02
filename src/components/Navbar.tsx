@@ -28,8 +28,8 @@ const Navbar = (props: NavbarProps) => {
     setIsOpen(!isOpen)
   }
   return (
-    <header className="text-lg">
-      <div className="py-4 flex justify-between items-center">
+    <header className="text-lg border-b border-neutral-500">
+      <div className="pt-3 pb-6 flex justify-between items-center">
         <a className="text-2xl hover:text-green-100" href="/">
           <span className="text-blue-500">[ </span>
           <span className="">andre</span>

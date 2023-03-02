@@ -10,10 +10,8 @@ const { frontmatter } = Astro.props
   author={frontmatter.author}
   keywords={frontmatter.tags.toString()}
 >
-  <main
-    class="mt-10 md:flex md:justify-center md:bg-neutral-800 md:rounded md:py-8"
-  >
-    <article class="prose prose-invert line-numbers">
+  <main class="mt-10">
+    <article class="max-w-fit prose prose-invert line-numbers">
       <slot />
     </article>
   </main>
