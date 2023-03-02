@@ -12,6 +12,7 @@ const Social = (props: Props) => {
             target="_blank"
             rel="nofollow noopener noreferrer"
             href="https://github.com/andremralves"
+            aria-label="André Alves's Github page"
           >
             <FaGithub size={30} />
           </a>
@@ -21,6 +22,7 @@ const Social = (props: Props) => {
             target="_blank"
             rel="nofollow noopener noreferrer"
             href="https://www.linkedin.com/in/andremralves/"
+            aria-label="André Alves's Linkedin page"
           >
             <FaLinkedin size={30} className="text-blue-400" />
           </a>

@@ -53,7 +53,11 @@ const Navbar = (props: NavbarProps) => {
             </div>
           </li>
         </ul>
-        <button className="md:hidden" onClick={toggleMenu}>
+        <button
+          className="md:hidden"
+          aria-label="menu-icon"
+          onClick={toggleMenu}
+        >
           <FaBars size={30} />
         </button>
       </div>
