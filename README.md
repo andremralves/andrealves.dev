@@ -1,36 +1,13 @@
-# Welcome to [Astro](https://astro.build)
+# andrealves.dev
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+## :computer: Tech Stack
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
-
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
+**Main Framework** - [Astro](https://astro.build/)  
+**Type Checking** - [TypeScript](https://www.typescriptlang.org/)  
+**Component Framework** - [ReactJS](https://reactjs.org/)  
+**Styling** - [TailwindCSS](https://tailwindcss.com/)  
+**Icons** - [React Icons](https://react-icons.github.io/react-icons/)
+**Deployment** - [Vercel](https://vercel.com)
 
 ## 🧞 Commands
 
