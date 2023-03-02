@@ -1,6 +1,8 @@
 ---
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+
+import '@fontsource/inter/variable.css'
 export interface Props {
   title: string
   author?: string
@@ -38,10 +40,6 @@ const { title, description, author, keywords } = Astro.props
   </body>
 </html>
 <style is:global>
-  html {
-    font-family: 'Poppins', sans-serif;
-  }
-
   .animate-gradient {
     background-size: 300%;
     -webkit-animation: animatedgradient 6s ease infinite alternate;
