@@ -16,10 +16,10 @@ const Posts = (props: PostsProps) => {
       <SectionTitle title={props.title} />
       <ul className="mt-4">
         {props.posts.map((post, index) => (
-          <li className="py-4 border-neutral-500 border-b hover:bg-neutral-800 rounded">
+          <li className="pl-2 py-4 border-neutral-500 border-b hover:bg-neutral-800 rounded">
             <a className="flex" href={post.url}>
               <span className="mr-3 text-neutral-500">{index + 1}</span>
-              <div className="flex flex-wrap gap-2 justify-between w-full">
+              <div className="flex flex-col gap-2 justify-between w-full">
                 <div>
                   <h1 className="text-xl">{post.frontmatter.title}</h1>
                   <div className="flex flex-wrap gap-2 my-4">
