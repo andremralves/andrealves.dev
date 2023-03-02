@@ -1,5 +1,9 @@
 # andrealves.dev
 
+A minimal, responsive and accessible personal website/blog built with Astro and Tailwindcss.
+
+![image](https://user-images.githubusercontent.com/71379045/222337992-9ab9fa78-7887-490f-b345-7364bc65a5c8.png)
+
 ## :computer: Tech Stack
 
 **Main Framework** - [Astro](https://astro.build/)  
