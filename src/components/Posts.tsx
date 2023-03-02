@@ -32,7 +32,7 @@ const Posts = (props: PostsProps) => {
                   </p>
                 </div>
 
-                <div className="text-neutral-500">
+                <div className="text-neutral-400">
                   {dateFormatter(post.frontmatter.pubDate)}
                 </div>
               </div>
