@@ -69,9 +69,9 @@ const Navbar = (props: NavbarProps) => {
             <li className={`px-2 py-1 hover:bg-neutral-800 hover:rounded `}>
               <div className="flex items-center gap-3">
                 <a href={resume.link1}>
-                  {resume.title}: <span className="hover:text-xl">🇺🇸</span>
+                  {resume.title}: <span className="text-xl">🇺🇸</span>
                 </a>{' '}
-                <a href={resume.link2} className="text-2xl">
+                <a href={resume.link2} className="text-xl">
                   🇧🇷
                 </a>
               </div>

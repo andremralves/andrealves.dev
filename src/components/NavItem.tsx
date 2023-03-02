@@ -8,15 +8,13 @@ type NavItemProps = {
 
 const NavItem = (props: NavItemProps) => {
   return (
-    <div className="border-b w-full md:border-none md:w-fit">
+    <li
+      className={`hover:bg-neutral-800 hover:rounded w-full md:w-fit ${props.className}`}
+    >
       <a href={props.link}>
-        <li
-          className={`px-2 py-1 hover:bg-neutral-800 hover:rounded ${props.className}`}
-        >
-          {props.title}
-        </li>
+        <div className="px-2 py-1 border-b md:border-none">{props.title}</div>
       </a>
-    </div>
+    </li>
   )
 }
 
