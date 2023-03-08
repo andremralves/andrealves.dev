@@ -1,7 +1,7 @@
 ---
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import { twitter } from '../data/socials'
+import { twitter, siteAuthor } from '../data/socials'
 
 import '@fontsource/inter/variable.css'
 export interface Props {
@@ -57,7 +57,7 @@ const canonicalURL = new URL(Astro.url).href
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
-    <meta property="og:site_name" content={author} />
+    <meta property="og:site_name" content={siteAuthor} />
     <meta property="og:image:alt" content={ogImage.alt} />
     <meta property="og:locale" content="en_US" />
     <meta property="twitter:card" content="summary_large_image" />

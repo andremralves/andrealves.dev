@@ -1,2 +1,2 @@
 export const twitter = '@andrealvesdev'
-export const author = 'André Alves'
+export const siteAuthor = 'André Alves'
