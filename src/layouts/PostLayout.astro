@@ -2,15 +2,34 @@
 import Layout from './Layout.astro'
 
 const { frontmatter } = Astro.props
+
+const { title, author, description, tags, coverImage } = frontmatter
 ---
 
 <Layout
-  title={`${frontmatter.title} | André Alves`}
-  description={frontmatter.description}
-  author={frontmatter.author}
-  keywords={frontmatter.tags.toString()}
+  title={`${title} | André Alves`}
+  description={description}
+  author={author}
+  keywords={tags.toString()}
+  ogImage={coverImage}
 >
   <main class="mt-10">
+    <h1
+      class="text-2xl sm:text-4xl mb-8 font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500"
+    >
+      {title}
+    </h1>
+    {
+      coverImage && (
+        <img
+          src={coverImage.src}
+          alt={coverImage.src}
+          class="mx-auto my-10 w-full max-w-full rounded-lg"
+          loading="lazy"
+          decoding="async"
+        />
+      )
+    }
     <article class="max-w-fit prose prose-invert line-numbers">
       <slot />
     </article>

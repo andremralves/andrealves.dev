@@ -5,9 +5,12 @@ author: 'André Alves'
 pubDate: '2022-12-30'
 description: 'This article will help you to create your own tag system with different colors and functionalities'
 tags: ['reactjs', 'typescript', 'tailwindcss', 'nextjs']
+coverImage:
+  src: '/images/react-tailwind-cover.jpg'
+  alt: 'The logo of ReactJs and Tailwind CSS'
 ---
 
-# How to make a tag system with react
+## Motivation
 
 The objective of this article is to help you to create a nice looking tag system with different colors and functions for each tag name in your react blog or site.
 
