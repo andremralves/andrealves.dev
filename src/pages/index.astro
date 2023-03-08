@@ -13,14 +13,9 @@ posts = posts
       Date.parse(p2.frontmatter.pubDate) - Date.parse(p1.frontmatter.pubDate)
   )
   .slice(0, 4)
-
-const title = 'André Alves - Software Engineer'
-const description =
-  "I'm André Alves, a Software Engineer and Web Developer. " +
-  'This is my personal website/blog were I share my experiences and knologe.'
 ---
 
-<Layout title={title} description={description}>
+<Layout>
   <main>
     <HeroSection />
     <ProjectsList />
