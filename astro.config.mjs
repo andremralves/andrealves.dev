@@ -11,7 +11,7 @@ import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://andrealves.dev',
+  site: 'https://www.andrealves.dev',
   integrations: [tailwind(), react(), sitemap()],
   markdown: {
     shikiConfig: {
