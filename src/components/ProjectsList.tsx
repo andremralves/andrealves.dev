@@ -11,6 +11,23 @@ const projects = [
     sourceLink: 'https://github.com/andremralves/new_website',
     liveLink: '',
   },
+  {
+    name: 'Django CRM',
+    techs: ['python', 'django', 'html', 'css', 'bootstrap'],
+    borderColor: 'border-orange-300',
+    description: 'A CRM system to manage patients and appointments.',
+    sourceLink: 'https://github.com/andremralves/django-CRM',
+    liveLink: '',
+  },
+  {
+    name: 'Todo List',
+    techs: ['typescript', 'reactjs', 'tailwindcss'],
+    borderColor: 'border-blue-300',
+    description:
+      'A Todo List app built with Typescript, TailwindCss, React and using Local Storage to store your tasks.',
+    sourceLink: 'https://github.com/andremralves/react-tailwind-todolist',
+    liveLink: 'https://serene-salmiakki-a825e6.netlify.app/',
+  },
 ]
 
 type ProjectListProps = {}
