@@ -11,7 +11,7 @@ const navItems = [
   },
   {
     title: 'Blog',
-    link: '/blog',
+    link: '/blog/',
   },
 ]
 

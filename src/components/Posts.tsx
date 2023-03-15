@@ -17,7 +17,7 @@ const Posts = (props: PostsProps) => {
       <ul className="mt-4">
         {props.posts.map((post, index) => (
           <li className="pl-2 py-4 border-neutral-500 border-b hover:bg-neutral-800 rounded">
-            <a className="flex" href={post.url}>
+            <a className="flex" href={post.url + '/'}>
               <span className="mr-3 text-neutral-500">{index + 1}</span>
               <div className="flex flex-col gap-2 justify-between w-full">
                 <div>
