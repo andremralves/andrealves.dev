@@ -43,13 +43,17 @@ const projects: ProjectCardProps[] = [
   },
 ]
 
-type ProjectListProps = {}
+type ProjectListProps = {
+  path?: string
+  limit?: number
+}
 
 const ProjectsList = (props: ProjectListProps) => {
+  const list = projects.slice(0, props.limit)
   return (
-    <>
+    <section className="mt-10">
       <SectionTitle title="Projects" />
-      {projects.map((project) => (
+      {list.map((project) => (
         <ProjectCard
           key={project.projectName}
           projectName={project.projectName}
@@ -61,7 +65,14 @@ const ProjectsList = (props: ProjectListProps) => {
           projectImageSrc={project.projectImageSrc}
         />
       ))}
-    </>
+      {props.path !== '/projects/' && (
+        <a href="/projects/">
+          <button className="mt-8 w-full bg-indigo-700 hover:bg-indigo-600 rounded py-2">
+            See more projects
+          </button>
+        </a>
+      )}
+    </section>
   )
 }
 
