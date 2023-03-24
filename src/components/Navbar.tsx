@@ -42,8 +42,9 @@ const Navbar = (props: NavbarProps) => {
           <span className="text-blue-500"> ]</span>
         </a>
         <ul className="hidden md:flex md:gap-2">
-          <NavItem title={navItems[0].title} link={navItems[0].link} />
-          <NavItem title={navItems[1].title} link={navItems[1].link} />
+          {navItems.map((item) => (
+            <NavItem key={item.title} title={item.title} link={item.link} />
+          ))}
           <li className={`px-2 py-1 hover:bg-neutral-800 hover:rounded `}>
             <div className="w-full ">
               <div className="flex items-end gap-3 justify-center">
@@ -67,8 +68,9 @@ const Navbar = (props: NavbarProps) => {
       </div>
       {isOpen && (
         <ul className="flex flex-col gap-3 items-center text-lg md:hidden">
-          <NavItem title={navItems[0].title} link={navItems[0].link} />
-          <NavItem title={navItems[1].title} link={navItems[1].link} />
+          {navItems.map((item) => (
+            <NavItem key={item.title} title={item.title} link={item.link} />
+          ))}
           <div className="border-b w-full md:border-none md:w-fit align-middle">
             <li className={`px-2 py-1 hover:bg-neutral-800 hover:rounded `}>
               <div className="flex items-center gap-3">
