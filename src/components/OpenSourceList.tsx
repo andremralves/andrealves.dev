@@ -5,6 +5,18 @@ import Tag from './Tag'
 
 const openSourceProjects = [
   {
+    name: 'AstroJs',
+    borderColor: 'border-red-600',
+    techs: ['typescript', 'javascript'],
+    stars: '28.8k',
+    description: `"Astro is the all-in-one web framework designed for speed. 
+      Pull your content from anywhere and deploy everywhere, 
+      all powered by your favorite UI components and libraries." 
+    `,
+    contributionLink:
+      'https://github.com/withastro/astro/pulls?q=is%3Apr+author%3Aandremralves+',
+  },
+  {
     name: 'Teammates',
     techs: ['java', 'angular', 'typescript'],
     stars: '1.4k',

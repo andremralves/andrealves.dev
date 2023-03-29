@@ -37,7 +37,7 @@ const OpenSourceCard = (props: OpenSourceCardProps) => {
           href={props.contributionLink}
         >
           <button className="mt-3 border-b hover:border-neutral-300 hover:border-b hover:text-neutral-300">
-            My contribution
+            My contributions
           </button>
         </a>
       </div>
