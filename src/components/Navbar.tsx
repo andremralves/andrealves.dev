@@ -34,12 +34,8 @@ const Navbar = (props: NavbarProps) => {
   return (
     <header className="text-lg border-b border-neutral-500">
       <div className="pt-3 pb-6 flex justify-between items-center">
-        <a className="text-2xl hover:text-green-100" href="/">
-          <span className="text-blue-500">[ </span>
-          <span className="">andre</span>
-          <span className="text-red-600">@</span>
-          <span className="">alves</span>
-          <span className="text-blue-500"> ]</span>
+        <a className="text-2xl font-semibold hover:text-blue-200" href="/">
+          andrealves.dev
         </a>
         <ul className="hidden md:flex md:gap-2">
           {navItems.map((item) => (
