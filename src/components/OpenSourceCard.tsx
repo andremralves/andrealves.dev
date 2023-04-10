@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Tag from './Tag'
+import { formatNumberWithUnits, getGithubStars } from '../utils'
 
 type OpenSourceCardProps = {
   projectName: string
@@ -8,10 +9,21 @@ type OpenSourceCardProps = {
   techs: string[]
   description: string
   contributionLink: string
+  owner: string
+  repo: string
 }
 
 const OpenSourceCard = (props: OpenSourceCardProps) => {
+  const [stars, setStars] = React.useState(0)
   const borderColor = props.borderColor || 'border-orange-300'
+
+  useEffect(() => {
+    getGithubStars(props.owner, props.repo).then((s) => {
+      console.log(s)
+      setStars(s)
+    })
+  })
+
   return (
     <div
       className={`bg-neutral-900 rounded p-2 mt-8 ${borderColor} border-l-2 drop-shadow-md`}
@@ -20,7 +32,7 @@ const OpenSourceCard = (props: OpenSourceCardProps) => {
         <div className="flex items-center justify-between">
           <h2 className="text-2xl">{props.projectName}</h2>
           <span className="h-fit ml-2 px-2 bg-neutral-600 rounded">
-            ⭐ {props.stars} stars
+            ⭐ {formatNumberWithUnits(stars)} stars
           </span>
         </div>
         <h3 className="mt-3">Tech</h3>

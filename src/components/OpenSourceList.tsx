@@ -15,6 +15,8 @@ const openSourceProjects = [
     `,
     contributionLink:
       'https://github.com/withastro/astro/pulls?q=is%3Apr+author%3Aandremralves+',
+    owner: 'withastro',
+    repo: 'astro',
   },
   {
     name: 'Teammates',
@@ -26,6 +28,8 @@ const openSourceProjects = [
     hundreds of universities across the world."`,
     contributionLink:
       'https://github.com/TEAMMATES/teammates/issues?q=author%3Aandremralves',
+    owner: 'TEAMMATES',
+    repo: 'teammates',
   },
   {
     name: 'Actual Budget',
@@ -36,6 +40,8 @@ const openSourceProjects = [
     It is 100% free and open-source, written in NodeJS, it has a synchronization element 
     so that all your changes can move between devices without any heavy lifting."`,
     contributionLink: 'https://github.com/actualbudget/actual/pull/124',
+    owner: 'actualbudget',
+    repo: 'actual',
   },
 ]
 
@@ -54,6 +60,8 @@ const OpenSourceList = (props: OpenSourceListProps) => {
           techs={project.techs}
           description={project.description}
           contributionLink={project.contributionLink}
+          owner={project.owner}
+          repo={project.repo}
         />
       ))}
     </section>

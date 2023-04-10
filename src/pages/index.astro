@@ -19,7 +19,7 @@ posts = posts
   <main>
     <HeroSection />
     <ProjectsList limit={3} />
-    <OpenSourceList />
+    <OpenSourceList client:load/>
     <Posts title="Latest posts" posts={posts} />
     <Skills />
   </main>
