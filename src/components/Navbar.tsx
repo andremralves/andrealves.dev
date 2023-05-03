@@ -41,7 +41,7 @@ const Navbar = (props: NavbarProps) => {
           {navItems.map((item) => (
             <NavItem key={item.title} title={item.title} link={item.link} />
           ))}
-          <li className={`px-2 py-1 hover:bg-neutral-800 hover:rounded `}>
+          {/* <li className={`px-2 py-1 hover:bg-neutral-800 hover:rounded `}>
             <div className="w-full ">
               <div className="flex items-end gap-3 justify-center">
                 <a href={resume.link1}>
@@ -52,7 +52,7 @@ const Navbar = (props: NavbarProps) => {
                 </a>
               </div>
             </div>
-          </li>
+          </li> */}
         </ul>
         <button
           className="md:hidden"
@@ -68,7 +68,7 @@ const Navbar = (props: NavbarProps) => {
             <NavItem key={item.title} title={item.title} link={item.link} />
           ))}
           <div className="border-b w-full md:border-none md:w-fit align-middle">
-            <li className={`px-2 py-1 hover:bg-neutral-800 hover:rounded `}>
+            {/* <li className={`px-2 py-1 hover:bg-neutral-800 hover:rounded `}>
               <div className="flex items-center gap-3">
                 <a href={resume.link1}>
                   {resume.title}: <span className="text-xl">🇺🇸</span>
@@ -77,7 +77,7 @@ const Navbar = (props: NavbarProps) => {
                   🇧🇷
                 </a>
               </div>
-            </li>
+            </li> */}
           </div>
         </ul>
       )}
