@@ -82,7 +82,7 @@ const canonicalURL = new URL(Astro.url).href
   </head>
   <body class="bg-neutral-900 text-neutral-100 h-screen">
     <div class="m-auto w-full max-w-screen-md p-5">
-      <Navbar client:load />
+      <Navbar client:load path={Astro.url.pathname}/>
       <slot />
       <Footer />
     </div>

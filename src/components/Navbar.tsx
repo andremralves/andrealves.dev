@@ -2,7 +2,9 @@ import { useState } from 'react'
 import { FaBars } from 'react-icons/fa/index'
 import NavItem from './NavItem'
 
-type NavbarProps = {}
+type NavbarProps = {
+  path: string
+}
 
 const navItems = [
   {
@@ -39,7 +41,12 @@ const Navbar = (props: NavbarProps) => {
         </a>
         <ul className="hidden md:flex md:gap-2">
           {navItems.map((item) => (
-            <NavItem key={item.title} title={item.title} link={item.link} />
+            <NavItem
+              key={item.title}
+              title={item.title}
+              link={item.link}
+              path={props.path}
+            />
           ))}
           {/* <li className={`px-2 py-1 hover:bg-neutral-800 hover:rounded `}>
             <div className="w-full ">
@@ -65,7 +72,12 @@ const Navbar = (props: NavbarProps) => {
       {isOpen && (
         <ul className="flex flex-col gap-3 items-center text-lg md:hidden">
           {navItems.map((item) => (
-            <NavItem key={item.title} title={item.title} link={item.link} />
+            <NavItem
+              key={item.title}
+              title={item.title}
+              link={item.link}
+              path={props.path}
+            />
           ))}
           <div className="border-b w-full md:border-none md:w-fit align-middle">
             {/* <li className={`px-2 py-1 hover:bg-neutral-800 hover:rounded `}>
