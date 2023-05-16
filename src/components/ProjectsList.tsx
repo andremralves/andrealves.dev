@@ -4,6 +4,26 @@ import SectionTitle from './SectionTitle'
 
 const projects: ProjectCardProps[] = [
   {
+    projectName: 'AvoidTheMud',
+    techs: ['typescript', 'reactjs', 'tailwindcss'],
+    borderColor: 'border-neutral-100',
+    description:
+      "Avoid the Mud is a shortest path visualizer that uses Dijkstra's algorithm to find the shortest path between two points in a grid while avoiding obstacles like muds and trees.",
+    sourceLink: 'https://github.com/projeto-de-algoritmos/Grafos2_AvoidTheMud',
+    liveLink: 'https://projeto-de-algoritmos.github.io/Grafos2_AvoidTheMud/',
+    projectImageSrc: '/images/avoid-the-mud.png',
+  },
+  {
+    projectName: 'WikiBacon',
+    techs: ['typescript', 'angular', 'angular-material'],
+    borderColor: 'border-neutral-100',
+    description:
+      "An app that uses Wikipedia's API to find the shortest path between two Wikipedia articles with some constraints.",
+    sourceLink: 'https://github.com/projeto-de-algoritmos/Grafos1-WikiBacon',
+    liveLink: 'https://projeto-de-algoritmos.github.io/Grafos1-WikiBacon/',
+    projectImageSrc: '/images/wiki-bacon.jpeg',
+  },
+  {
     projectName: 'Tile Installation Calculator',
     techs: ['typescript', 'reactjs', 'tailwindcss'],
     borderColor: 'border-neutral-100',
