@@ -12,12 +12,14 @@ const NavItem = (props: NavItemProps) => {
 
   return (
     <li
-      className={`hover:bg-neutral-800 hover:rounded w-full md:w-fit ${
+      className={`dark:hover:bg-zinc-800 hover:bg-zinc-200 hover:rounded w-full md:w-fit ${
         props.className
-      }} ${isActive ? 'bg-neutral-800 rounded' : ''}`}
+      }} ${isActive ? 'dark:bg-zinc-800 bg-zinc-200 rounded' : ''}`}
     >
       <a href={props.link}>
-        <div className="px-2 py-1 border-b md:border-none">{props.title}</div>
+        <div className="text-zinc-700 px-2 py-1 border-b md:border-none">
+          {props.title}
+        </div>
       </a>
     </li>
   )

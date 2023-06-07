@@ -15,26 +15,28 @@ export type ProjectCardProps = {
 const ProjectCard = (props: ProjectCardProps) => {
   return (
     <div
-      className={`bg-neutral-900 ${props.borderColor} rounded p-2 mt-8 border-l-2 drop-shadow-md`}
+      className={`dark:bg-zinc-800 bg-zinc-200 border border-zinc-200 rounded-2xl p-4 mt-8`}
     >
-      <div className="ml-2 flex flex-col md:flex-row md:items-center">
-        <div className="md:w-3/5 md:pr-2">
-          <h2 className="text-2xl">{props.projectName}</h2>
+      <div className="flex flex-col md:flex-row md:items-center">
+        <div className="md:w-3/5 md:pr-4">
+          <h2 className="dark:text-zinc-100 text-zinc-700 text-2xl">
+            {props.projectName}
+          </h2>
           <div className="md:hidden block mt-3">
             <img
-              className="rounded border border-neutral-500"
+              className="rounded-2xl border border-zinc-500"
               src={props.projectImageSrc}
               alt=""
             />
           </div>
-          <h3 className="mt-3">Tech</h3>
+          <h3 className="mt-3 dark:text-zinc-100 text-zinc-700">Tech</h3>
           <div className="flex mt-1 gap-2">
             {props.techs.map((tech) => (
               <Tag key={tech} name={tech} />
             ))}
           </div>
-          <h3 className="mt-3">Description</h3>
-          <p className="mt-3 text-neutral-400">{props.description}</p>
+          <h3 className="dark:text-zinc-100 text-zinc-700 mt-3">Description</h3>
+          <p className="mt-3">{props.description}</p>
           <div className="flex gap-5 mt-3">
             {props.sourceLink && (
               <a
@@ -53,7 +55,8 @@ const ProjectCard = (props: ProjectCardProps) => {
               >
                 <SimpleDashedButton
                   text="Live project"
-                  color="text-orange-300"
+                  color="text-orange-500"
+                  darkColor="dark:text-orange-300"
                 />
               </a>
             )}
@@ -61,7 +64,7 @@ const ProjectCard = (props: ProjectCardProps) => {
         </div>
         <div className="hidden md:block md:w-2/5">
           <img
-            className="rounded border border-neutral-500"
+            className="rounded-2xl border border-zinc-500"
             src={props.projectImageSrc}
             alt=""
           />

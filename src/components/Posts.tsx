@@ -18,10 +18,9 @@ const Posts = (props: PostsProps) => {
         {props.posts.map((post, index) => (
           <li
             key={post.frontmatter.title}
-            className="pl-2 py-4 border-neutral-500 border-b hover:bg-neutral-800 rounded"
+            className="p-4 border-zinc-500 border-b hover:bg-zinc-800 rounded"
           >
             <a className="flex" href={post.url + '/'}>
-              <span className="mr-3 text-neutral-500">{index + 1}</span>
               <div className="flex flex-col gap-2 justify-between w-full">
                 <div>
                   <h1 className="text-xl">{post.frontmatter.title}</h1>
@@ -30,14 +29,10 @@ const Posts = (props: PostsProps) => {
                       <Tag key={tag} name={tag} />
                     ))}
                   </div>
-                  <p className="text-neutral-400">
-                    {post.frontmatter.description}
-                  </p>
+                  <p>{post.frontmatter.description}</p>
                 </div>
 
-                <div className="text-neutral-400">
-                  {dateFormatter(post.frontmatter.pubDate)}
-                </div>
+                <div>{dateFormatter(post.frontmatter.pubDate)}</div>
               </div>
             </a>
           </li>

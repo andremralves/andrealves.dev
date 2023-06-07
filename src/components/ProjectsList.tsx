@@ -6,7 +6,7 @@ const projects: ProjectCardProps[] = [
   {
     projectName: 'AvoidTheMud',
     techs: ['typescript', 'reactjs', 'tailwindcss'],
-    borderColor: 'border-neutral-100',
+    borderColor: 'border-zinc-100',
     description:
       "Avoid the Mud is a shortest path visualizer that uses Dijkstra's algorithm to find the shortest path between two points in a grid while avoiding obstacles like muds and trees.",
     sourceLink: 'https://github.com/projeto-de-algoritmos/Grafos2_AvoidTheMud',
@@ -16,7 +16,7 @@ const projects: ProjectCardProps[] = [
   {
     projectName: 'WikiBacon',
     techs: ['typescript', 'angular', 'angular-material'],
-    borderColor: 'border-neutral-100',
+    borderColor: 'border-zinc-100',
     description:
       "An app that uses Wikipedia's API to find the shortest path between two Wikipedia articles with some constraints.",
     sourceLink: 'https://github.com/projeto-de-algoritmos/Grafos1-WikiBacon',
@@ -26,7 +26,7 @@ const projects: ProjectCardProps[] = [
   {
     projectName: 'Tile Installation Calculator',
     techs: ['typescript', 'reactjs', 'tailwindcss'],
-    borderColor: 'border-neutral-100',
+    borderColor: 'border-zinc-100',
     description:
       "An app built for a local business that estimates the cost their tile installation service given the customer's area and tile of choice.",
     sourceLink: '',
@@ -36,7 +36,7 @@ const projects: ProjectCardProps[] = [
   {
     projectName: 'This Website',
     techs: ['typescript', 'reactjs', 'astrojs'],
-    borderColor: 'border-neutral-100',
+    borderColor: 'border-zinc-100',
     description: 'My personal portfolio website and blog.',
     sourceLink: 'https://github.com/andremralves/new_website',
     liveLink: '',
@@ -87,7 +87,7 @@ const ProjectsList = (props: ProjectListProps) => {
       ))}
       {props.path !== '/projects/' && (
         <a href="/projects/">
-          <button className="mt-8 w-full bg-indigo-700 hover:bg-indigo-600 rounded py-2">
+          <button className="mt-8 w-full bg-zinc-200 text-zinc-700 hover:bg-zinc-300 font-semibold rounded py-2">
             See more projects
           </button>
         </a>

@@ -34,9 +34,9 @@ const Navbar = (props: NavbarProps) => {
     setIsOpen(!isOpen)
   }
   return (
-    <header className="text-lg border-b border-neutral-500">
+    <header className="text-lg border-b border-zinc-500">
       <div className="pt-3 pb-6 flex justify-between items-center">
-        <a className="text-2xl font-semibold hover:text-blue-200" href="/">
+        <a className="text-2xl font-semibold hover:text-zinc-200" href="/">
           andrealves.dev
         </a>
         <ul className="hidden md:flex md:gap-2">
@@ -48,7 +48,7 @@ const Navbar = (props: NavbarProps) => {
               path={props.path}
             />
           ))}
-          {/* <li className={`px-2 py-1 hover:bg-neutral-800 hover:rounded `}>
+          {/* <li className={`px-2 py-1 hover:bg-zinc-800 hover:rounded `}>
             <div className="w-full ">
               <div className="flex items-end gap-3 justify-center">
                 <a href={resume.link1}>
@@ -80,7 +80,7 @@ const Navbar = (props: NavbarProps) => {
             />
           ))}
           <div className="border-b w-full md:border-none md:w-fit align-middle">
-            {/* <li className={`px-2 py-1 hover:bg-neutral-800 hover:rounded `}>
+            {/* <li className={`px-2 py-1 hover:bg-zinc-800 hover:rounded `}>
               <div className="flex items-center gap-3">
                 <a href={resume.link1}>
                   {resume.title}: <span className="text-xl">🇺🇸</span>
