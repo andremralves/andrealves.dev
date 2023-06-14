@@ -19,16 +19,17 @@ const OpenSourceCard = (props: OpenSourceCardProps) => {
 
   useEffect(() => {
     getGithubStars(props.owner, props.repo).then((s) => {
-      console.log(s)
       setStars(s)
     })
   })
 
   return (
-    <div className={`bg-zinc-800 rounded p-4 mt-8 ${borderColor} border-l-2 `}>
+    <div
+      className={`dark:bg-zinc-800 bg-zinc-50 rounded p-4 mt-8 ${borderColor} border-l-2 `}
+    >
       <div className="flex items-center justify-between">
         <h2 className="text-2xl">{props.projectName}</h2>
-        <span className="h-fit ml-2 px-2 bg-zinc-600 rounded">
+        <span className="h-fit ml-2 px-2 dark:bg-zinc-600 bg-zinc-200 rounded">
           ⭐ {formatNumberWithUnits(stars)} stars
         </span>
       </div>
@@ -45,7 +46,7 @@ const OpenSourceCard = (props: OpenSourceCardProps) => {
         rel="nofollow noopener noreferrer"
         href={props.contributionLink}
       >
-        <button className="mt-3 border-b hover:border-zinc-300 hover:border-b hover:text-zinc-300">
+        <button className="mt-3 border-b dark:hover:border-zinc-300 dark:hover:text-zinc-300 hover:border-zinc-800 hover:text-zinc-800">
           My contributions
         </button>
       </a>

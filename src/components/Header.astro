@@ -1,0 +1,89 @@
+---
+import NavItem from './NavItem'
+import { BiSun, BiMoon } from 'react-icons/bi/index'
+import { FaBars } from 'react-icons/fa/index'
+const navItems = [
+  {
+    title: 'Home',
+    link: '/',
+  },
+  {
+    title: 'Open Source',
+    link: '/open-source/',
+  },
+  {
+    title: 'Projects',
+    link: '/projects/',
+  },
+  {
+    title: 'Blog',
+    link: '/blog/',
+  },
+]
+
+const { activeNav } = Astro.props
+---
+
+<header class="text-lg border-b border-zinc-500">
+  <div class="pt-3 pb-6 flex justify-between items-center">
+    <a
+      class="text-2xl font-semibold dark:hover:text-zinc-200 hover:text-zinc-600"
+      href="/"
+    >
+      andrealves.dev
+    </a>
+    <ul class="hidden md:flex md:gap-2">
+      {
+        navItems.map((item) => (
+          <li>
+            <NavItem
+              client:load
+              title={item.title}
+              link={item.link}
+              path={activeNav}
+            />
+          </li>
+        ))
+      }
+      <li class="h-fit">
+        <button
+          id="theme-toggle"
+          class="py-1 dark:hover:text-orange-300 hover:text-sky-300"
+          title="Toggles light & dark"
+          aria-label="auto"
+          aria-live="polite"
+        >
+          <BiSun id="btn-sun" size={28} />
+          <BiMoon id="btn-moon" size={28} />
+        </button>
+      </li>
+    </ul>
+    <button class="md:hidden" aria-label="menu-icon">
+      <FaBars size={30} />
+    </button>
+  </div>
+  <ul
+    class="flex flex-col gap-3 items-center text-lg md:hidden hidden"
+    aria-label="menu"
+  >
+    {
+      navItems.map((item) => (
+        <NavItem
+          client:load
+          title={item.title}
+          link={item.link}
+          path={activeNav}
+        />
+      ))
+    }
+  </ul>
+</header>
+
+<script>
+  // Toggle menu
+  const menuButton = document.querySelector('button[aria-label="menu-icon"]')
+  const menu = document.querySelector('ul[aria-label="menu"]')
+  menuButton.addEventListener('click', () => {
+    menu.classList.toggle('hidden')
+  })
+</script>

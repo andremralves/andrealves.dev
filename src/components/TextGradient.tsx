@@ -14,7 +14,7 @@ export default function TextGradient(props: TextGradientProps) {
 
   return (
     <span
-      className={`bg-gradient-to-r ${from} ${via} ${to} text-transparent bg-clip-text animate-gradient`}
+      className={`bg-gradient-to-r ${from} ${via} ${to} text-transparent bg-clip-text bg-300% animate-gradient`}
     >
       {props.text}
     </span>

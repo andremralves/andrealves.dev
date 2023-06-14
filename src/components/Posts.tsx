@@ -18,7 +18,7 @@ const Posts = (props: PostsProps) => {
         {props.posts.map((post, index) => (
           <li
             key={post.frontmatter.title}
-            className="p-4 border-zinc-500 border-b hover:bg-zinc-800 rounded"
+            className="p-4 border-zinc-500 border-b dark:hover:bg-zinc-800 hover:bg-zinc-200 rounded"
           >
             <a className="flex" href={post.url + '/'}>
               <div className="flex flex-col gap-2 justify-between w-full">

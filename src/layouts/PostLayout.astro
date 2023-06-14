@@ -39,7 +39,8 @@ const fullPubDate = dateObj.toLocaleDateString('en', {
             rel="nofollow noopener noreferrer"
             aria-label="André Alves's Twitter page"
             href="https://twitter.com/andrealvesdev"
-            class="text-zinc-300 hover:text-zinc-200">@andrealvesdev</a
+            class="font-medium dark:text-zinc-300 dark:hover:text-zinc-200 text-zinc-900 hover:text-zinc-700"
+            >@andrealvesdev</a
           >
         </span>
         <p>{fullPubDate}</p>
@@ -57,7 +58,7 @@ const fullPubDate = dateObj.toLocaleDateString('en', {
       }
     </header>
     <article
-      class="prose-headings:text-zinc-700 text-zinc-500 max-w-fit prose prose-invert line-numbers"
+      class="dark:prose-headings:text-zinc-100 prose-headings:text-zinc-800 dark:text-zinc-100 text-zinc-700 max-w-fit prose prose-invert line-numbers"
     >
       <slot />
     </article>

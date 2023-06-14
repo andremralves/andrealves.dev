@@ -30,7 +30,9 @@ const tagColor: MapType = {
 const Tag = (props: TagProps) => {
   return (
     <span
-      className={`px-2 border ${tagColor[props.name]} rounded text-zinc-700`}
+      className={`px-2 border ${
+        tagColor[props.name]
+      } rounded dark:text-zinc-100 text-zinc-800`}
     >
       {props.name}
     </span>

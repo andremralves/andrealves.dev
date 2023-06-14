@@ -87,7 +87,7 @@ const ProjectsList = (props: ProjectListProps) => {
       ))}
       {props.path !== '/projects/' && (
         <a href="/projects/">
-          <button className="mt-8 w-full bg-zinc-200 text-zinc-700 hover:bg-zinc-300 font-semibold rounded py-2">
+          <button className="mt-8 w-full bg-zinc-200 text-zinc-800 hover:bg-zinc-300 font-semibold rounded py-2">
             See more projects
           </button>
         </a>

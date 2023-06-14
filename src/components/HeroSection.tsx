@@ -9,7 +9,7 @@ const HeroSection = (props: Props) => {
     <section className="mt-10">
       <div className="flex flex-col">
         <div className="max-w-fit mb-5 text-3xl">
-          <span className="dark:text-zinc-100 text-zinc-700">
+          <span className="dark:text-zinc-100 text-zinc-800">
             Hi there 👋, I'm
           </span>
           <h1 className="text-5xl pt-2 font-semibold md:text-7xl">

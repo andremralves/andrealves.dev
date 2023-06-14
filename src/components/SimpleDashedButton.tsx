@@ -7,7 +7,7 @@ type SimpleDashedButtonProps = {
 }
 
 const SimpleDashedButton = (props: SimpleDashedButtonProps) => {
-  const textColor = props.color ? props.color : 'text-zinc-700'
+  const textColor = props.color ? props.color : 'text-zinc-800'
   const darkTextColor = props.darkColor ? props.darkColor : 'dark:text-zinc-100'
   return (
     <button

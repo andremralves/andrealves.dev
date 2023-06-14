@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import Header from '../components/Header.astro'
 import { twitter, siteAuthor } from '../data/socials'
 
 import '@fontsource/inter/variable.css'
@@ -39,6 +40,11 @@ const {
 
 const ogImageURL = new URL(ogImage.src, Astro.site).href
 const canonicalURL = new URL(Astro.url).href
+let theme = localStorage.getItem('theme')
+if (theme === null) {
+  theme = 'dark'
+}
+//document.documentElement.classList.add(theme === 'dark' ? 'dark' : 'light')
 ---
 
 <!DOCTYPE html>
@@ -79,34 +85,15 @@ const canonicalURL = new URL(Astro.url).href
         />
       )
     }
+    <script defer is:inline src="/toggle-theme.js"></script>
   </head>
   <body
-    class="dark:bg-zinc-900 dark:text-zinc-100 bg-zinc-100 text-zinc-600 h-screen"
+    class="dark:bg-zinc-900/100 dark:text-zinc-100 bg-zinc-100 text-zinc-700 h-screen"
   >
     <div class="m-auto w-full max-w-screen-md p-5">
-      <Navbar client:load path={Astro.url.pathname} />
+      <Header activeNav={Astro.url.pathname} />
       <slot />
       <Footer />
     </div>
   </body>
 </html>
-<style is:global>
-  .animate-gradient {
-    background-size: 300%;
-    -webkit-animation: animatedgradient 6s ease infinite alternate;
-    -moz-animation: animatedgradient 6s ease infinite alternate;
-    animation: animatedgradient 6s ease infinite alternate;
-  }
-
-  @keyframes animatedgradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-</style>
