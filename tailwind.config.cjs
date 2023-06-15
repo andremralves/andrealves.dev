@@ -32,12 +32,6 @@ module.exports = {
 
       animation: {
         gradient: 'animatedgradient 6s ease infinite alternate',
-        // gradient: {
-        //   backgroundSize: '300%',
-        //   '-webkit-animation': 'animatedgradient 6s ease infinite alternate',
-        //   '-moz-animation': 'animatedgradient 6s ease infinite alternate',
-        //   animation: 'animatedgradient 6s ease infinite alternate',
-        // },
       },
       'waving-hand': 'wave 2s linear infinite',
     },
