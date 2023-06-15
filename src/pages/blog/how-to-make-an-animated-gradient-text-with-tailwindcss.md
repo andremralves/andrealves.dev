@@ -36,6 +36,8 @@ Now it's just missing the animation. Let's build it.
 
 ## 2. Add the animation
 
+The following is the animation's css.
+
 ```css
 .animate-gradient {
   background-size: 300%;
@@ -57,6 +59,40 @@ Now it's just missing the animation. Let's build it.
 }
 ```
 
+You can add the above css somewhere, but a good practice when working with tailwind is extending the default theme. Go to your `tailwind.config.cjs` and add the following code:
+
+```ts
+module.exports = {
+  theme: {
+    extend: {
+      keyframes: {
+        animatedgradient: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+      },
+      backgroundSize: {
+        '300%': '300%',
+      },
+      animation: {
+        gradient: 'animatedgradient 6s ease infinite alternate',
+      },
+    },
+  },
+}
+```
+
+Don't forget to add `bg-300%` to your class:
+
+```html
+<span
+  class="text-2xl font-bold bg-gradient-to-r from-orange-700 via-blue-500 to-green-400 text-transparent bg-clip-text bg-300% animate-gradient"
+>
+  My gradient text
+</span>
+```
+
 Basically what this animation do is to zoom in the background and go leftwards and rightwards alternating between the colors during 6 seconds.
 
 ## 3. Bonus: Create a react component for this element
@@ -76,7 +112,7 @@ export default function TextGradient(props: TextGradientProps) {
 
   return (
     <span
-      className={`bg-gradient-to-r ${from} ${via} ${to} text-transparent bg-clip-text animate-gradient`}
+      className={`bg-gradient-to-r ${from} ${via} ${to} text-transparent bg-clip-text bg-300% animate-gradient`}
     >
       {props.text}
     </span>
