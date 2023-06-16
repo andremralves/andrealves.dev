@@ -2,7 +2,7 @@
 import Posts from '../components/Posts'
 import Layout from '../layouts/Layout.astro'
 
-let posts = await Astro.glob('../pages/blog/*.md')
+let posts = await Astro.glob('../pages/blog/*.mdx')
 posts = posts.sort(
   (p1, p2) =>
     Date.parse(p2.frontmatter.pubDate) - Date.parse(p1.frontmatter.pubDate)

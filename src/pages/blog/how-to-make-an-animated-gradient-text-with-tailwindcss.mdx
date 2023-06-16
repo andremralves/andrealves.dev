@@ -10,14 +10,18 @@ coverImage:
   alt: 'The logo of ReactJs and Tailwind CSS'
 ---
 
+import TextGradient from '../../components/TextGradient'
+
 Making a website stand out from the rest can be a challenging task. However, there is a simple technique that can enhance any landing page or header: using gradient text.
 
 While gradients can be an effective design element, it's important not to overuse them. Gradients work best when used on headings or to emphasize specific words, but should not be used for longer blocks of text.
 
 With tailwind, this task can be really easy. With just some tailwind rules and a custom css animation you can accomplish it.
 
-<div class="flex justify-center">
-  <img src="/images/animated-gradient.gif" alt="Animated gradient text" />
+<div class="pt-5">
+  <div class="dark:border-zinc-600 border-zinc-200 rounded border py-5 flex justify-center text-4xl font-bold">
+    <TextGradient text="My Gradient Text" />
+  </div>
 </div>
 
 ## 1. Add the gradient text

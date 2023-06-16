@@ -6,7 +6,7 @@ import ProjectsList from '../components/ProjectsList'
 import Skills from '../components/Skills'
 import Posts from '../components/Posts'
 
-let posts = await Astro.glob('../pages/blog/*.md')
+let posts = await Astro.glob('../pages/blog/*.mdx')
 posts = posts
   .sort(
     (p1, p2) =>

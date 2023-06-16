@@ -1,18 +1,20 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig } from 'astro/config';
+
+import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
-import tailwind from '@astrojs/tailwind'
+import react from '@astrojs/react';
 
 // https://astro.build/config
-import react from '@astrojs/react'
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
-import sitemap from '@astrojs/sitemap'
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.andrealves.dev',
-  integrations: [tailwind(), react(), sitemap()],
+  integrations: [tailwind(), react(), sitemap(), mdx()],
   markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)
@@ -23,7 +25,7 @@ export default defineConfig({
       // https://github.com/shikijs/shiki/blob/main/docs/languages.md
       langs: ['tsx'],
       // Enable word wrap to prevent horizontal scrolling
-      wrap: false,
-    },
-  },
-})
+      wrap: false
+    }
+  }
+});
