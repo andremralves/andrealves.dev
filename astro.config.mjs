@@ -14,7 +14,11 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.andrealves.dev',
-  integrations: [tailwind(), react(), sitemap(), mdx()],
+  integrations: [tailwind({
+    config: {
+      applyBaseStyles: false,
+    }
+  }), react(), sitemap(), mdx()],
   markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)

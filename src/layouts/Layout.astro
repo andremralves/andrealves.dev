@@ -2,6 +2,7 @@
 import Footer from '../components/Footer'
 import Header from '../components/Header.astro'
 import { twitter, siteAuthor } from '../data/socials'
+import "../styles/base.css"
 
 import '@fontsource/inter/variable.css'
 export interface Props {
@@ -84,7 +85,7 @@ if (theme === null) {
         />
       )
     }
-    <script defer is:inline src="/toggle-theme.js"></script>
+    <script is:inline src="/toggle-theme.js"></script>
   </head>
   <body
     class="dark:bg-zinc-900/100 dark:text-zinc-100 bg-zinc-100 text-zinc-700 h-screen"

@@ -47,7 +47,7 @@ const { activeNav } = Astro.props
       }
       <li class="h-fit">
         <button
-          id="theme-toggle"
+          id="theme-btn"
           class="py-1 dark:hover:text-orange-300 hover:text-sky-300"
           title="Toggles light & dark"
           aria-label="auto"
@@ -86,4 +86,23 @@ const { activeNav } = Astro.props
   menuButton.addEventListener('click', () => {
     menu.classList.toggle('hidden')
   })
+
+  // Toggle icon
+
+  // function setThemeBtn() {
+  //   let themeValue = document.querySelector('html').getAttribute('class')
+  //   console.log(themeValue)
+  //   if (themeValue === 'dark') {
+  //     document.querySelector('#btn-sun')?.removeAttribute('hidden')
+  //     document.querySelector('#btn-moon')?.setAttribute('hidden', 'true')
+  //   } else {
+  //     document.querySelector('#btn-sun')?.setAttribute('hidden', 'true')
+  //     document.querySelector('#btn-moon')?.removeAttribute('hidden')
+  //   }
+  // }
+  // setThemeBtn()
+  // const themeBtn = document.querySelector('#theme-btn')
+  // themeBtn.addEventListener('click', () => {
+  //   setThemeBtn();
+  // })
 </script>
