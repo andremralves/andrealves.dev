@@ -1,8 +1,6 @@
 import { defineConfig } from 'astro/config';
-
 import tailwind from '@astrojs/tailwind';
 
-// https://astro.build/config
 import react from '@astrojs/react';
 
 // https://astro.build/config
@@ -12,13 +10,16 @@ import sitemap from '@astrojs/sitemap';
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
+import partytown from "@astrojs/partytown";
+
+// https://astro.build/config
 export default defineConfig({
   site: 'https://www.andrealves.dev',
   integrations: [tailwind({
     config: {
-      applyBaseStyles: false,
+      applyBaseStyles: false
     }
-  }), react(), sitemap(), mdx()],
+  }), react(), sitemap(), mdx(), partytown({config: { forward: ["dataLayer.push"]}})],
   markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes (or add your own)

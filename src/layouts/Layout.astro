@@ -86,17 +86,16 @@ if (theme === null) {
       )
     }
     <script is:inline src="/toggle-theme.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4550222390214811"
-     crossorigin="anonymous"></script>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q115KWWZM6"></script>
-    <script>
+    <script type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-Q115KWWZM6"></script>
+    <script type="text/partytown">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
       gtag('config', 'G-Q115KWWZM6');
     </script>
+    <slot name="head"/>
   </head>
   <body
     class="dark:bg-zinc-900/100 dark:text-zinc-100 bg-zinc-100 text-zinc-700 h-screen"
