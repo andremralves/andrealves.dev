@@ -1,84 +1,87 @@
 ---
-import Layout from './Layout.astro'
+import Layout from './Layout.astro';
 
-const { frontmatter } = Astro.props
+const { frontmatter } = Astro.props;
 
-const { title, author, description, pubDate, tags, coverImage } = frontmatter
+const { title, author, description, pubDate, tags, coverImage } = frontmatter;
 
-const dateObj = new Date(pubDate)
+const dateObj = new Date(pubDate);
 
 const fullPubDate = dateObj.toLocaleDateString('en', {
-  dateStyle: 'full',
-})
+	dateStyle: 'full',
+});
 ---
 
 <Layout
-  title={`${title} | André Alves`}
-  description={description}
-  author={author}
-  pubDate={dateObj}
-  keywords={tags.toString()}
-  ogImage={coverImage}
+	title={`${title} | André Alves`}
+	description={description}
+	author={author}
+	pubDate={dateObj}
+	keywords={tags.toString()}
+	ogImage={coverImage}
 >
-  <script slot="head" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4550222390214811"
-    crossorigin="anonymous"></script>
-  <main class="mt-10">
-    <header class="mb-8">
-      <div class="flex justify-between mb-4">
-        <a href="/blog" class="hover:text-zinc-300">← Back to blog</a>
-      </div>
+	<script
+		slot="head"
+		async
+		src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4550222390214811"
+		crossorigin="anonymous"></script>
+	<main class="mt-10">
+		<header class="mb-8">
+			<div class="mb-4 flex justify-between">
+				<a href="/blog" class="hover:text-zinc-300">← Back to blog</a>
+			</div>
 
-      <h1
-        class="mb-4 text-3xl sm:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-500"
-      >
-        {title}
-      </h1>
-      <div class="flex justify-between mb-4">
-        <span>
-          Author
-          <a
-            target="_blank"
-            rel="nofollow noopener noreferrer"
-            aria-label="André Alves's Twitter page"
-            href="https://twitter.com/andrealvesdev"
-            class="font-medium dark:text-zinc-300 dark:hover:text-zinc-200 text-zinc-900 hover:text-zinc-700"
-            >@andrealvesdev</a
-          >
-        </span>
-        <p>{fullPubDate}</p>
-      </div>
-      {
-        coverImage && (
-          <img
-            src={coverImage.src}
-            alt={coverImage.src}
-            class="mx-auto w-full max-w-full rounded-lg"
-            loading="lazy"
-            decoding="async"
-          />
-        )
-      }
-    </header>
-    <article
-      class="dark:prose-headings:text-zinc-100 dark:prose-code:text-zinc-100 prose-code:text-zinc-800 prose-headings:text-zinc-700 dark:text-zinc-100 text-zinc-700 max-w-fit prose prose-invert line-numbers"
-    >
-      <slot />
-    </article>
-  </main>
+			<h1
+				class="mb-4 bg-gradient-to-r from-green-400 via-blue-500 to-purple-500 bg-clip-text text-center text-3xl font-bold text-transparent sm:text-4xl"
+			>
+				{title}
+			</h1>
+			<div class="mb-4 flex justify-between">
+				<span>
+					Author
+					<a
+						target="_blank"
+						rel="nofollow noopener noreferrer"
+						aria-label="André Alves's Twitter page"
+						href="https://twitter.com/andrealvesdev"
+						class="font-medium text-zinc-900 hover:text-zinc-700 dark:text-zinc-300 dark:hover:text-zinc-200"
+						>@andrealvesdev</a
+					>
+				</span>
+				<p>{fullPubDate}</p>
+			</div>
+			{
+				coverImage && (
+					<img
+						src={coverImage.src}
+						alt={coverImage.src}
+						class="mx-auto w-full max-w-full rounded-lg"
+						loading="lazy"
+						decoding="async"
+					/>
+				)
+			}
+		</header>
+		<article
+			class="line-numbers prose prose-invert max-w-fit text-zinc-700 prose-headings:text-zinc-700 prose-code:text-zinc-800 dark:text-zinc-100 dark:prose-headings:text-zinc-100 dark:prose-code:text-zinc-100"
+		>
+			<slot />
+		</article>
+	</main>
 </Layout>
 <style is:inline>
-  code {
-    counter-reset: step;
-    counter-increment: step calc(var(--start, 1) - 1);
-  }
+	code {
+		counter-reset: step;
+		counter-increment: step calc(var(--start, 1) - 1);
+	}
 
-  code .line::before {
-    content: counter(step);
-    counter-increment: step;
-    width: 1rem;
-    margin-right: 1.5rem;
-    display: inline-block;
-    text-align: right;
-    color: rgba(115, 138, 148, 0.4);
-  }
+	code .line::before {
+		content: counter(step);
+		counter-increment: step;
+		width: 1rem;
+		margin-right: 1.5rem;
+		display: inline-block;
+		text-align: right;
+		color: rgba(115, 138, 148, 0.4);
+	}
 </style>

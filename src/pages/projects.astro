@@ -1,12 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import ProjectsList from '../components/ProjectsList'
+import Layout from '../layouts/Layout.astro';
+import ProjectsList from '../components/ProjectsList';
 ---
 
-<Layout
-  title="Open Source | André Alves"
->
-  <main>
-    <ProjectsList path={Astro.url.pathname} />
-  </main>
+<Layout title="Open Source | André Alves">
+	<main>
+		<ProjectsList path={Astro.url.pathname} />
+	</main>
 </Layout>

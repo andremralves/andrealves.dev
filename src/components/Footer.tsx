@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-type Props = {}
+type Props = {};
 
 const Footer = (props: Props) => {
-  return (
-    <footer className="flex justify-center mt-10 pt-5 border-t border-zinc-500">
-      <p>By André Alves</p>
-    </footer>
-  )
-}
+	return (
+		<footer className="mt-10 flex justify-center border-t border-zinc-500 pt-5">
+			<p>By André Alves</p>
+		</footer>
+	);
+};
 
-export default Footer
+export default Footer;

@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-    #btn-sun,
-    html[class="dark"] #btn-moon {
-    display: none;
-    }
-    #btn-moon,
-    html[class="dark"] #btn-sun {
-    display: block;
-    }
+	#btn-sun,
+	html[class='dark'] #btn-moon {
+		display: none;
+	}
+	#btn-moon,
+	html[class='dark'] #btn-sun {
+		display: block;
+	}
 }

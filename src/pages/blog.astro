@@ -1,18 +1,14 @@
 ---
-import { getCollection } from 'astro:content'
-import Posts from '../components/Posts'
-import Layout from '../layouts/Layout.astro'
+import { getCollection } from 'astro:content';
+import Posts from '../components/Posts';
+import Layout from '../layouts/Layout.astro';
 
-let posts = await getCollection("blog")
+let posts = await getCollection('blog');
 posts = posts.sort(
- (p1, p2) =>
-   Date.parse(p2.data.pubDate.toString()) - Date.parse(p1.data.pubDate.toString())
-)
+	(p1, p2) => Date.parse(p2.data.pubDate.toString()) - Date.parse(p1.data.pubDate.toString())
+);
 ---
 
-<Layout
-  title="Blog | André Alves"
-  description="The blog section of André Alves's website."
->
-  <Posts title="Blog" posts={posts} />
+<Layout title="Blog | André Alves" description="The blog section of André Alves's website.">
+	<Posts title="Blog" posts={posts} />
 </Layout>

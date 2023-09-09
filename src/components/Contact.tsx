@@ -1,14 +1,14 @@
-import React from 'react'
-import SectionTitle from './SectionTitle'
+import React from 'react';
+import SectionTitle from './SectionTitle';
 
-type Props = {}
+type Props = {};
 
 const Contact = (props: Props) => {
-  return (
-    <div>
-      <SectionTitle title="Contact me" />
-    </div>
-  )
-}
+	return (
+		<div>
+			<SectionTitle title="Contact me" />
+		</div>
+	);
+};
 
-export default Contact
+export default Contact;

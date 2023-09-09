@@ -1,108 +1,92 @@
 ---
-import NavItem from './NavItem'
-import { BiSun, BiMoon } from 'react-icons/bi/index'
-import { FaBars } from 'react-icons/fa/index'
+import NavItem from './NavItem';
+import { BiSun, BiMoon } from 'react-icons/bi/index';
+import { FaBars } from 'react-icons/fa/index';
 const navItems = [
-  {
-    title: 'Home',
-    link: '/',
-  },
-  {
-    title: 'Open Source',
-    link: '/open-source/',
-  },
-  {
-    title: 'Projects',
-    link: '/projects/',
-  },
-  {
-    title: 'Blog',
-    link: '/blog/',
-  },
-]
+	{
+		title: 'Home',
+		link: '/',
+	},
+	{
+		title: 'Open Source',
+		link: '/open-source/',
+	},
+	{
+		title: 'Projects',
+		link: '/projects/',
+	},
+	{
+		title: 'Blog',
+		link: '/blog/',
+	},
+];
 
-const { activeNav } = Astro.props
+const { activeNav } = Astro.props;
 ---
 
-<header class="text-lg border-b border-zinc-500">
-  <div class="pt-3 pb-6 flex justify-between items-center">
-    <a
-      class="text-2xl font-semibold dark:hover:text-zinc-200 hover:text-zinc-600"
-      href="/"
-    >
-      andrealves.dev
-    </a>
-    <ul class="hidden md:flex md:gap-2">
-      {
-        navItems.map((item) => (
-          <li>
-            <NavItem
-              client:load
-              title={item.title}
-              link={item.link}
-              path={activeNav}
-            />
-          </li>
-        ))
-      }
-      <li class="h-fit">
-        <button
-          id="theme-btn"
-          class="py-1 dark:hover:text-orange-300 hover:text-sky-300"
-          title="Toggles light & dark"
-          aria-label="auto"
-          aria-live="polite"
-        >
-          <BiSun id="btn-sun" size={28} />
-          <BiMoon id="btn-moon" size={28} />
-        </button>
-      </li>
-    </ul>
-    <button class="md:hidden" aria-label="menu-icon">
-      <FaBars size={30} />
-    </button>
-  </div>
-  <ul
-    class="flex flex-col gap-3 items-center text-lg md:hidden hidden"
-    aria-label="menu"
-  >
-    {
-      navItems.map((item) => (
-        <NavItem
-          client:load
-          title={item.title}
-          link={item.link}
-          path={activeNav}
-        />
-      ))
-    }
-  </ul>
+<header class="border-b border-zinc-500 text-lg">
+	<div class="flex items-center justify-between pb-6 pt-3">
+		<a class="text-2xl font-semibold hover:text-zinc-600 dark:hover:text-zinc-200" href="/">
+			andrealves.dev
+		</a>
+		<ul class="hidden md:flex md:gap-2">
+			{
+				navItems.map((item) => (
+					<li>
+						<NavItem client:load title={item.title} link={item.link} path={activeNav} />
+					</li>
+				))
+			}
+			<li class="h-fit">
+				<button
+					id="theme-btn"
+					class="py-1 hover:text-sky-300 dark:hover:text-orange-300"
+					title="Toggles light & dark"
+					aria-label="auto"
+					aria-live="polite"
+				>
+					<BiSun id="btn-sun" size={28} />
+					<BiMoon id="btn-moon" size={28} />
+				</button>
+			</li>
+		</ul>
+		<button class="md:hidden" aria-label="menu-icon">
+			<FaBars size={30} />
+		</button>
+	</div>
+	<ul class="flex hidden flex-col items-center gap-3 text-lg md:hidden" aria-label="menu">
+		{
+			navItems.map((item) => (
+				<NavItem client:load title={item.title} link={item.link} path={activeNav} />
+			))
+		}
+	</ul>
 </header>
 
 <script>
-  // Toggle menu
-  const menuButton = document.querySelector('button[aria-label="menu-icon"]')
-  const menu = document.querySelector('ul[aria-label="menu"]')
-  menuButton.addEventListener('click', () => {
-    menu.classList.toggle('hidden')
-  })
+	// Toggle menu
+	const menuButton = document.querySelector('button[aria-label="menu-icon"]');
+	const menu = document.querySelector('ul[aria-label="menu"]');
+	menuButton.addEventListener('click', () => {
+		menu.classList.toggle('hidden');
+	});
 
-  // Toggle icon
+	// Toggle icon
 
-  // function setThemeBtn() {
-  //   let themeValue = document.querySelector('html').getAttribute('class')
-  //   console.log(themeValue)
-  //   if (themeValue === 'dark') {
-  //     document.querySelector('#btn-sun')?.removeAttribute('hidden')
-  //     document.querySelector('#btn-moon')?.setAttribute('hidden', 'true')
-  //   } else {
-  //     document.querySelector('#btn-sun')?.setAttribute('hidden', 'true')
-  //     document.querySelector('#btn-moon')?.removeAttribute('hidden')
-  //   }
-  // }
-  // setThemeBtn()
-  // const themeBtn = document.querySelector('#theme-btn')
-  // themeBtn.addEventListener('click', () => {
-  //   setThemeBtn();
-  // })
+	// function setThemeBtn() {
+	//   let themeValue = document.querySelector('html').getAttribute('class')
+	//   console.log(themeValue)
+	//   if (themeValue === 'dark') {
+	//     document.querySelector('#btn-sun')?.removeAttribute('hidden')
+	//     document.querySelector('#btn-moon')?.setAttribute('hidden', 'true')
+	//   } else {
+	//     document.querySelector('#btn-sun')?.setAttribute('hidden', 'true')
+	//     document.querySelector('#btn-moon')?.removeAttribute('hidden')
+	//   }
+	// }
+	// setThemeBtn()
+	// const themeBtn = document.querySelector('#theme-btn')
+	// themeBtn.addEventListener('click', () => {
+	//   setThemeBtn();
+	// })
 </script>

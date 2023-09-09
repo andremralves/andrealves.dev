@@ -1,71 +1,69 @@
-import React from 'react'
-import OpenSourceCard from './OpenSourceCard'
-import SectionTitle from './SectionTitle'
-import Tag from './Tag'
+import React from 'react';
+import OpenSourceCard from './OpenSourceCard';
+import SectionTitle from './SectionTitle';
+import Tag from './Tag';
 
 const openSourceProjects = [
-  {
-    name: 'AstroJs',
-    borderColor: 'border-red-600',
-    techs: ['typescript', 'javascript'],
-    stars: '28.8k',
-    description: `"Astro is the all-in-one web framework designed for speed. 
+	{
+		name: 'AstroJs',
+		borderColor: 'border-red-600',
+		techs: ['typescript', 'javascript'],
+		stars: '28.8k',
+		description: `"Astro is the all-in-one web framework designed for speed. 
       Pull your content from anywhere and deploy everywhere, 
       all powered by your favorite UI components and libraries." 
     `,
-    contributionLink:
-      'https://github.com/withastro/astro/pulls?q=is%3Apr+author%3Aandremralves+',
-    owner: 'withastro',
-    repo: 'astro',
-  },
-  {
-    name: 'Teammates',
-    techs: ['java', 'angular', 'typescript'],
-    stars: '1.4k',
-    description: `"TEAMMATES is a free online tool for managing peer evaluations and 
+		contributionLink: 'https://github.com/withastro/astro/pulls?q=is%3Apr+author%3Aandremralves+',
+		owner: 'withastro',
+		repo: 'astro',
+	},
+	{
+		name: 'Teammates',
+		techs: ['java', 'angular', 'typescript'],
+		stars: '1.4k',
+		description: `"TEAMMATES is a free online tool for managing peer evaluations and 
     other feedback paths of your students. It is provided as a
     cloud-based service for educators/students and is currently used by
     hundreds of universities across the world."`,
-    contributionLink:
-      'https://github.com/TEAMMATES/teammates/issues?q=author%3Aandremralves',
-    owner: 'TEAMMATES',
-    repo: 'teammates',
-  },
-  {
-    name: 'Actual Budget',
-    borderColor: 'border-green-600',
-    techs: ['javascript', 'reactjs', 'nodejs'],
-    stars: '6k',
-    description: `"Actual is a local-first personal finance tool. 
+		contributionLink: 'https://github.com/TEAMMATES/teammates/issues?q=author%3Aandremralves',
+		owner: 'TEAMMATES',
+		repo: 'teammates',
+	},
+	{
+		name: 'Actual Budget',
+		borderColor: 'border-green-600',
+		techs: ['javascript', 'reactjs', 'nodejs'],
+		stars: '6k',
+		description: `"Actual is a local-first personal finance tool. 
     It is 100% free and open-source, written in NodeJS, it has a synchronization element 
     so that all your changes can move between devices without any heavy lifting."`,
-    contributionLink: 'https://github.com/actualbudget/actual/pull/124',
-    owner: 'actualbudget',
-    repo: 'actual',
-  },
-]
+		contributionLink: 'https://github.com/actualbudget/actual/pull/124',
+		owner: 'actualbudget',
+		repo: 'actual',
+	},
+];
 
-type OpenSourceListProps = {}
+type OpenSourceListProps = {};
 
 const OpenSourceList = (props: OpenSourceListProps) => {
-  return (
-    <section className="mt-10">
-      <SectionTitle title="Open Source Contributions" />
-      {openSourceProjects.map((project) => (
-        <OpenSourceCard
-          key={project.name}
-          projectName={project.name}
-          borderColor={project.borderColor}
-          stars={project.stars}
-          techs={project.techs}
-          description={project.description}
-          contributionLink={project.contributionLink}
-          owner={project.owner}
-          repo={project.repo}
-        />
-      ))}
-    </section>
-  )
-}
+	return (
+		<section className="mt-10">
+			<SectionTitle title="Open Source Contributions" />
+			{openSourceProjects.map((project) => (
+				<OpenSourceCard
+					key={project.name}
+					projectName={project.name}
+					borderColor={project.borderColor}
+					stars={project.stars}
+					techs={project.techs}
+					description={project.description}
+					contributionLink={project.contributionLink}
+					owner={project.owner}
+					repo={project.repo}
+				/>
+			))}
+		</section>
+	);
+};
 
-export default OpenSourceList
+export default OpenSourceList;

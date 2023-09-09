@@ -1,100 +1,91 @@
 ---
-import Footer from '../components/Footer'
-import Header from '../components/Header.astro'
-import { twitter, siteAuthor } from '../data/socials'
-import "../styles/base.css"
+import Footer from '../components/Footer';
+import Header from '../components/Header.astro';
+import { twitter, siteAuthor } from '../data/socials';
+import '../styles/base.css';
 
-import '@fontsource-variable/inter'
+import '@fontsource-variable/inter';
 export interface Props {
-  title?: string
-  author?: string
-  ogImage?: {
-    src: string
-    alt: string
-  }
-  keywords?: string
-  description?: string
-  pubDate?: Date
+	title?: string;
+	author?: string;
+	ogImage?: {
+		src: string;
+		alt: string;
+	};
+	keywords?: string;
+	description?: string;
+	pubDate?: Date;
 }
 
 const defaultMeta = {
-  title: 'André Alves | Software Engineer',
-  author: 'André Alves',
-  description:
-    "I'm André Alves, a Software Engineer and Web Developer. " +
-    'This is my personal website/blog were I share my experiences and knologe.',
-  ogImage: {
-    src: '/images/website-image.jpg',
-    alt: "André Alves's website image",
-  },
-}
+	title: 'André Alves | Software Engineer',
+	author: 'André Alves',
+	description:
+		"I'm André Alves, a Software Engineer and Web Developer. " +
+		'This is my personal website/blog were I share my experiences and knologe.',
+	ogImage: {
+		src: '/images/website-image.jpg',
+		alt: "André Alves's website image",
+	},
+};
 
 const {
-  title = defaultMeta.title,
-  description = defaultMeta.description,
-  ogImage = defaultMeta.ogImage,
-  author = defaultMeta.author,
-  keywords,
-  pubDate = '',
-} = Astro.props
+	title = defaultMeta.title,
+	description = defaultMeta.description,
+	ogImage = defaultMeta.ogImage,
+	author = defaultMeta.author,
+	keywords,
+	pubDate = '',
+} = Astro.props;
 
-const ogImageURL = new URL(ogImage.src, Astro.site).href
-const canonicalURL = new URL(Astro.url).href
-let theme = localStorage.getItem('theme')
+const ogImageURL = new URL(ogImage.src, Astro.site).href;
+const canonicalURL = new URL(Astro.url).href;
+let theme = localStorage.getItem('theme');
 if (theme === null) {
-  theme = 'dark'
+	theme = 'dark';
 }
 //document.documentElement.classList.add(theme === 'dark' ? 'dark' : 'light')
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="canonical" href={canonicalURL} />
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImageURL} />
-    <meta property="og:site_name" content={siteAuthor} />
-    <meta property="og:image:alt" content={ogImage.alt} />
-    <meta property="og:locale" content="en_US" />
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta name="twitter:site" content={twitter} />
-    <meta name="twitter:creator" content={twitter} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImageURL} />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="robots" content="follow, index" />
-    <meta name="author" content={author} />
-    {keywords && <meta name="keywords" content={keywords} />}
-    {
-      pubDate && (
-        <meta
-          property="article:published_time"
-          content={pubDate.toISOString()}
-        />
-      )
-    }
-    <script is:inline src="/toggle-theme.js"></script>
-    <slot name="head"/>
-  </head>
-  <body
-    class="dark:bg-zinc-900/100 dark:text-zinc-100 bg-zinc-100 text-zinc-700 h-screen"
-  >
-    <div class="m-auto w-full max-w-screen-md p-5">
-      <Header activeNav={Astro.url.pathname} />
-      <slot />
-      <Footer />
-    </div>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="canonical" href={canonicalURL} />
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageURL} />
+		<meta property="og:site_name" content={siteAuthor} />
+		<meta property="og:image:alt" content={ogImage.alt} />
+		<meta property="og:locale" content="en_US" />
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta name="twitter:site" content={twitter} />
+		<meta name="twitter:creator" content={twitter} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={ogImageURL} />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="robots" content="follow, index" />
+		<meta name="author" content={author} />
+		{keywords && <meta name="keywords" content={keywords} />}
+		{pubDate && <meta property="article:published_time" content={pubDate.toISOString()} />}
+		<script is:inline src="/toggle-theme.js"></script>
+		<slot name="head" />
+	</head>
+	<body class="h-screen bg-zinc-100 text-zinc-700 dark:bg-zinc-900/100 dark:text-zinc-100">
+		<div class="m-auto w-full max-w-screen-md p-5">
+			<Header activeNav={Astro.url.pathname} />
+			<slot />
+			<Footer />
+		</div>
+	</body>
 </html>
