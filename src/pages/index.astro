@@ -5,14 +5,14 @@ import HeroSection from '../components/HeroSection'
 import ProjectsList from '../components/ProjectsList'
 import Skills from '../components/Skills'
 import Posts from '../components/Posts'
+import { getCollection } from 'astro:content'
 
-let posts = await Astro.glob('../pages/blog/*.mdx')
-posts = posts
-  .sort(
-    (p1, p2) =>
-      Date.parse(p2.frontmatter.pubDate) - Date.parse(p1.frontmatter.pubDate)
-  )
-  .slice(0, 4)
+let posts = await getCollection("blog")
+posts = posts.sort(
+ (p1, p2) =>
+   Date.parse(p2.data.pubDate.toString()) - Date.parse(p1.data.pubDate.toString())
+)
+ .slice(0, 4)
 ---
 
 <Layout>
