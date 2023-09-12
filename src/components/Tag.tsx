@@ -23,6 +23,7 @@ const tagColor: MapType = {
 	bootstrap: 'border-red-300',
 	tailwindcss: 'border-green-300',
 	sfml: 'border-amber-500',
+	'open-source': 'border-slate-600',
 	'c++': 'border-red-500',
 	'data-structures': 'border-orange-300',
 };

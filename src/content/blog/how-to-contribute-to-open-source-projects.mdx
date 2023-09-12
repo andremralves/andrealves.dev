@@ -1,0 +1,80 @@
+---
+title: 'How to Contribute to Open Source Projects'
+author: 'André Alves'
+pubDate: '2023-12-09'
+description: Contributing to Open Source projects can be a game-changer in a software developer's career. The experience helps you connect with other developers, learn best practices in a specific technology, and, of course, it's a strong asset to include on your resume. This article will help you to make your first contribution to Open Source projects.
+tags: ['open-source', lnodejss, 'astrojs', 'nextjs']
+coverImage:
+  src: '/images/how-to-contribute-to-oss-cover.jpg'
+  alt: 'The logo of ReactJs and Tailwind CSS'
+---
+
+Contributing to Open Source projects can be a game-changer in a software developer's career. The experience helps you connect with other developers, learn best practices in a specific technology, and, of course, it's a strong asset to include on your resume (imagine having a contribution to the React repository while applying for a React job).
+
+This year, I made some contributions to awesome projects such as AstroJs and NodeJs, and I want to share my experience contributing to those projects and provide some tips for those of you who want to join this world as well.
+
+For this article, I will use my first contribution to NodeJs as an example and create a step-by-step guide, starting from picking the issue until the accepted/merged code.
+
+# Guide on how to contribute to Open Source projects
+
+## 1. Picking the project
+
+The first step is to find the project you want to contribute to. My advice is to choose one that you have some knowledge of. You don't need to know everything about that project; understanding its purpose is sufficient.
+
+Take a look at the issues and check if they have meaningful tags that describe the problem well. You don't want a project with thousands of untagged issues that feels abandoned. Also, check the latest commits to see if the project is currently being actively maintained.
+
+Here's an example of a project with well-tagged issues: Astro's issue tracker.
+
+![Astro issues](/images/astro-issues.png)
+
+## 2. Finding an issue
+
+Now it's time to find the issue you are going to invest your time in solving.
+
+My advice in this step is as follows:
+
+- Try to find a confirmed bug.
+- Read the comments in the issue to see if there is helpful information.
+- Check if they mention a possible location/file for the bug (if not, ask a maintainer).
+- Pick an issue that you have some idea of how to solve (though not always necessary; sometimes you just need to investigate and you will find the problem).
+
+Let's take the first issue that I solved in NodeJs as an example:
+
+![My first NodeJs issue](/images/first-issue-node.png)
+
+The TL;DR of that issue is:
+
+There is a bug with the data:imports specifier that is accepting improperly formatted MIME types, e.g., import 'data:WRONGtext/javascriptTYPE,console.log("hello!");';.
+
+At this point, I already had a guess about what was causing that issue, maybe something related to a weak regex that I should make stricter.
+
+## 3. Preparing to work on the issue
+
+You might find it odd that I haven't mentioned running the project on your local machine yet. While many tutorials on the same subject suggest running the project locally and spending time trying to understand the codebase, I prefer to start by looking for the issue first. This way, I can focus on a small segment of the codebase related to the issue.
+
+So, you've found the issue you want to work on (remember to write in the comments that you are interested in working on that issue). Now, you need to run the project, attempt to reproduce the reported behavior, and start working on a fix.
+
+To run the project locally, look for documentation on how to do so. Usually, Open Source projects have files like CONTRIBUTING.md or BUILDING.md that guide you on how to start contributing to the codebase. Try to find them and follow the instructions.
+
+## 4. Working on the issue
+
+Now that you have the project up and running, you can start solving the issue. In the case of a bug fix, you can follow these steps:
+
+- Reproduce the bug locally.
+- Find the part of the code related to the problem (you can use keywords to search in VSCode).
+- Add some print statements to identify where the bug originates or use a debugger.
+- Once you've pinpointed the exact part of the code causing the bug, you can start implementing your solution.
+- After the bug appears to be fixed, add some tests!
+
+## 5. Sending the PR
+
+It's time to create your Pull Request (PR). Before doing anything, read the CONTRIBUTING.md (if the project has one) and follow the rules for submitting a PR. Some common practices include:
+
+- Running all the tests to ensure nothing is broken.
+- Running the linter to check if your changes follow the project's code pattern.
+- Creating meaningful commits (e.g., lib: fix MIME type overmatch in data URLs).
+- Adding a changelog.
+
+You may encounter more or fewer steps to follow in your project, but the hard work you've already done will pay off, and it's just a matter of time until your PR is accepted.
+
+Thanks for reading.
