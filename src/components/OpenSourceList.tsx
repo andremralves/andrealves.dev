@@ -5,6 +5,16 @@ import Tag from './Tag';
 
 const openSourceProjects = [
 	{
+		name: 'NodeJs',
+		borderColor: 'border-green-800',
+		techs: ['c++', 'javascript'],
+		stars: '100k',
+		description: `"Node.js is an open-source, cross-platform JavaScript runtime environment."`,
+		contributionLink: 'https://github.com/nodejs/node/pulls?q=is%3Apr+author%3Aandremralves+is%3Aclosed',
+		owner: 'nodejs',
+		repo: 'node',
+	},
+	{
 		name: 'AstroJs',
 		borderColor: 'border-red-600',
 		techs: ['typescript', 'javascript'],
