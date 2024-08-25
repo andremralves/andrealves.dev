@@ -1,0 +1,116 @@
+---
+title: 'GSoC 2024 at MariaDB: Developing Generalized Triggers' 
+author: 'Andre Alves'
+pubDate: '2024-08-25'
+description: 'Submitting my work from GSoC 2024, focused on generalized triggers for MariaDB.'
+tags: ['gsoc', 'mariadb', 'c++', 'sql']
+coverImage:
+  src: '/images/gsoc-mariadb-cover.jpg'
+  alt: 'The logo of GSoC and MariaDB'
+---
+
+## 1. Project Summary
+
+This summer, I worked on adding some generalized triggers to MariaDB. The new triggers include:
+
+```sql
+CREATE TRIGGER ... AFTER STARTUP ...
+CREATE TRIGGER ... BEFORE SHUTDOWN ...
+CREATE TRIGGER ... ON SCHEDULE ...
+```
+
+The last one is essentially a synonym for CREATE EVENT.
+
+### 1.1 Use Cases
+Some use cases mentioned by the reporter of the feature request include:
+
+- For startup: Cleaning temp tables (not using CREATE TEMPORARY TABLE, but a regular one for temporary data purposes) and creating preset daily data for query speed boosts.
+- For shutdown: Rebuilding tables (e.g., with OPTIMIZE NO_WRITE_TO_BINLOG TABLE tt_a) and running batch jobs before the server shuts down.
+
+## 2. What I did
+
+### 2.1 CREATE TRIGGER as a synonym for CREATE EVENT
+
+Implementing this feature was just a matter of making some tweaking on the parser so that when the rule `CREATE TRIGGER` is matched it's tail can be either a trigger_tail or a event_tail.
+
+Usage example:
+
+```sql
+MariaDB [test]> CREATE TRIGGER trg1 ON SCHEDULE EVERY 1 SECOND DO INSERT INTO t1 VALUES (10);
+Query OK, 0 rows affected (0.049 sec)
+
+MariaDB [test]> DROP TRIGGER trg1;
+Query OK, 0 rows affected (0.046 sec)
+```
+
+### 2.2 STARTUP Triggers
+
+Before talking specifically about startup triggers, I will share the base implementation for startup and shutdown triggers.
+
+Since the mysql.event table already holds all the necessary information for storing startup and shutdown triggers—such as name, database, SQL statement, etc.—it makes sense to use it for these triggers as well. In fact, the event table contains more information than we need; columns related to execution time are unnecessary because startup and shutdown triggers run at fixed moments. The only addition required is a new column, event_kind, to identify the type of event stored in each row. This column can be SCHEDULE, STARTUP, or SHUTDOWN. 
+
+Now that startup/shutdown are basically a special kind of event they can be run using the event scheduler infrastructure by simply calling Event_scheduler::execute_top().
+
+I created a function called Events::search_n_execute_events (Event_parse_data::enum_event_kind event_kind) that traverses the event table and executes the triggers that match the current event_kind.
+
+So, now, for executing STARTUP triggers, I just call this function during the server startup.
+
+
+```sql
+MariaDB [test]> CREATE TRIGGER trg2 AFTER STARTUP DO UPDATE test.t1 SET inc = inc + 1;
+Query OK, 0 rows affected (0.004 sec)
+
+MariaDB [test]> DROP TRIGGER trg2;
+Query OK, 0 rows affected (0.005 sec)
+```
+
+Usage example:
+
+### 2.3 SHUTDOWN Triggers
+
+For shutdown triggers, it’s similar—we just call Events::search_n_execute_events() when a shutdown signal or command is received. However, getting shutdown triggers to work was a bit trickier due to concurrency issues between the shutdown trigger worker threads and the main thread handling the shutdown process. I had to ensure that the worker threads complete smoothly without getting a KILL_SERVER_HARD signal.
+
+Usage example:
+
+```sql
+MariaDB [test]> CREATE TRIGGER trg3 BEFORE SHUTDOWN DO UPDATE test.t1 SET inc = inc + 1;
+Query OK, 0 rows affected (0.054 sec)
+
+MariaDB [test]> DROP TRIGGER trg3;
+Query OK, 0 rows affected (0.046 sec)
+```
+
+### 2.4 Making DROP TRIGGER work for both DML Triggers and the Generalized Triggers
+
+I made the create trigger command work for adding generalized triggers, now the users would expect to use the DROP TRIGGER command to drop them as well. However, the drop trigger command already is used for DML Triggers. How could I use the same command for both dml triggers and also the triggers stored in mysql.event table? I asked my mentor for some advice and he told me that I could do de following when DROP TRIGGER is called: first try to delete a DML Trigger and if its not found try a Generalized Trigger (the ones stored in mysql.event). And that is what I did.
+
+## 3. Current State & What’s left to Do
+
+I would say the main objective of this project is complete. However, due to the approach used for DROP TRIGGER, the error messages are not fully standardized—you might receive errors related to either triggers or events. The solution was to update the error messages that previously referred to events to now use trigger-related messages. I believe this change will take some time to be validated.
+
+After my mentors review it, I’ll make the necessary adjustments and continue refining the PR until it’s ready to be merged.
+
+## 4. Key Learnings
+
+During the development of this project, I learned how to use the Yacc tool for building parsers and gained valuable experience with multi-threading and handling concurrency issues.
+
+## 5. Pull Requests
+
+All the work was done in the following pull request:
+
+|  PR Title |  Merge Status  |
+|---|---|
+| [MDEV-30645: Generalized triggers](https://github.com/MariaDB/server/pull/3296)  |  Open  |
+
+I also made some other contributions not related to my main project:
+
+|  PR Title |  Merge Status  |
+|---|---|
+|  [MDEV-33618: add mariadbd_safe to option groups](https://github.com/MariaDB/server/pull/3130) |  Merged  |
+|  [MDEV-33659 Server crashed at Create_func_aes_decrypt::create_native](https://github.com/MariaDB/server/pull/3151) |  Merged  |
+|  [MDEV-33659 Fix crash in kdf() without parameters](https://github.com/MariaDB/server/pull/3153) |  Merged  |
+|  [MDEV-33782 Implement ENABLE ON SLAVE option for events](https://github.com/MariaDB/server/pull/3174) |  Open |
+
+## 6. Acknowledgements
+
+I would like to thank my mentors, Sergei Golubchik and Dave Gosselin, for their support during the development of this project. Their prompt assistance in answering questions, debugging, and providing insightful tips was crucial to my progress and learning throughout this experience.
