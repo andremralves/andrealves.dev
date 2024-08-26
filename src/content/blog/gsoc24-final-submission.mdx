@@ -55,6 +55,7 @@ I created a function called Events::search_n_execute_events (Event_parse_data::e
 
 So, now, for executing STARTUP triggers, I just call this function during the server startup.
 
+Usage example:
 
 ```sql
 MariaDB [test]> CREATE TRIGGER trg2 AFTER STARTUP DO UPDATE test.t1 SET inc = inc + 1;
@@ -63,8 +64,6 @@ Query OK, 0 rows affected (0.004 sec)
 MariaDB [test]> DROP TRIGGER trg2;
 Query OK, 0 rows affected (0.005 sec)
 ```
-
-Usage example:
 
 ### 2.3 SHUTDOWN Triggers
 
